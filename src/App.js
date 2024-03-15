@@ -1,16 +1,10 @@
 import "./App.css";
-import Button from "./UI/Button";
-import LoginSignupInput from "./UI/LoginSignupInput";
+import SignUp from "./pages/SignUp";
 
 function App() {
   return (
     <div className="App">
-      <Button color="#ff5733" name="sendBtn" />
-      <LoginSignupInput
-        type="email"
-        placeholder="Enter email"
-        label="Email address"
-      />
+      <SignUp />
     </div>
   );
 }

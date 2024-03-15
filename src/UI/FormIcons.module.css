@@ -1,0 +1,55 @@
+.checkboxDiv {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+#checkbox {
+  width: 23px;
+  height: 23px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 107px;
+}
+
+.logoName {
+  width: 102px;
+  color: #ff5733;
+  font-family: "Exo", sans-serif;
+  font-size: 17.266px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 120%; /* 20.719px */
+}
+
+#signupImgDiv {
+  width: 512px;
+  height: 512px;
+  border: 2px solid white;
+  /* flex-shrink: 0; */
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  border-radius: 50%;
+  overflow: hidden;
+  position: absolute;
+  bottom: -105px;
+  left: -93px;
+  overflow: hidden;
+}
+
+#signupImg {
+  background-color: white;
+  width: 468.453px;
+  height: 305px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-shrink: 0;
+}
