@@ -7,13 +7,15 @@ import button from "./Button.module.css";
 
 // all buttons have two classnames. first is the "btn classname which has already been fixed and passed to the component for the default general style and the second is the secondary classname eg "searchBtn", "btnWide" etc which is the additional unique style for the particular button"
 
-export default function Button({ color, name }) {
+// btnType props will display the text that the button shows eg Sign Up, Send etc
+
+export default function Button({ color, name, btnType }) {
   return (
     <button
       style={{ backgroundColor: color }}
       className={`${button.btn} ${button[name]}`}
     >
-      Send
+      {btnType}
     </button>
   );
 }
