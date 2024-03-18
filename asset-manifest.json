@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/trendsphereboost/static/css/main.4446dca2.css",
+    "main.js": "/trendsphereboost/static/js/main.c8660b21.js",
+    "static/media/loginImg.png": "/trendsphereboost/static/media/loginImg.3bf724910b831c664419.png",
+    "static/media/signup-img.svg": "/trendsphereboost/static/media/signup-img.8df796921759cd2ef44b881b5e39d2db.svg",
+    "static/media/instagram.svg": "/trendsphereboost/static/media/instagram.7631ff0b9e959d866e5f89bdd2c498e2.svg",
+    "static/media/google.svg": "/trendsphereboost/static/media/google.19a198a7f08427a0478bf6a2348593e0.svg",
+    "static/media/show-password.svg": "/trendsphereboost/static/media/show-password.dae374a03eab11f5e7071226e11dc59a.svg",
+    "index.html": "/trendsphereboost/index.html",
+    "static/media/blueLogo.svg": "/trendsphereboost/static/media/blueLogo.f3fff4fcfcee0c1a06adb9161e59ff60.svg",
+    "static/media/orangeLogo.svg": "/trendsphereboost/static/media/orangeLogo.1912092809f0209c9e1f02c3a1752e2e.svg",
+    "static/media/linkedin.svg": "/trendsphereboost/static/media/linkedin.f96e7418e95b72e8bbfe6507508ee063.svg",
+    "static/media/facebook.svg": "/trendsphereboost/static/media/facebook.322e8d8ca8a021229b8a0cd5d489cf44.svg",
+    "static/media/twitter.svg": "/trendsphereboost/static/media/twitter.9898acd6dc3747a94a105a58cefae40e.svg",
+    "main.4446dca2.css.map": "/trendsphereboost/static/css/main.4446dca2.css.map",
+    "main.c8660b21.js.map": "/trendsphereboost/static/js/main.c8660b21.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4446dca2.css",
+    "static/js/main.c8660b21.js"
+  ]
+}
