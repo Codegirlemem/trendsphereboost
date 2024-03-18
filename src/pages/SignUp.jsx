@@ -1,13 +1,13 @@
 import styled from "styled-components";
-import SignupLeftSection from "../components/SignupLeftSection";
-import SignupRightSection from "../components/SignupRightSection";
+import SignupLeftSection from "../components/signup/SignupLeftSection";
+import SignupRightSection from "../components/signup/SignupRightSection";
 
 const Main = styled.main`
   background-color: #002f5f;
   border-top-right-radius: 24px;
   border-bottom-right-radius: 24px;
   display: flex;
-  width: 100%;
+  min-height: 100dvh;
 `;
 
 function SignUp() {

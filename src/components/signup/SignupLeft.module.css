@@ -1,0 +1,34 @@
+.container {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+  background-color: #002f5f;
+  padding-left: 120px;
+  padding-top: 30px;
+  position: relative;
+  overflow: hidden;
+}
+
+.text {
+  width: 466px;
+  color: #fff;
+  font-family: "Exo", sans-serif;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 160%; /* 51.2px */
+}
+
+.sectionImg {
+  position: absolute;
+  left: -65px;
+  bottom: -84px;
+}
+
+.signupText {
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

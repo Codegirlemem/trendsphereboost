@@ -1,11 +1,17 @@
-import style from "./FormInput.module.css";
+import style from "./UserInput.module.css";
 import { ReactComponent as ShowIcon } from "../assets/icons/show-password.svg";
 
 import { useState } from "react";
 
 // Pass the input type, placeholder text and label text content as props using type, placeholder and label as the exact prop name in the parent component
 
-export default function FormInput({ type, placeholder, label }) {
+export default function UserInput({
+  type,
+  placeholder,
+  label,
+  name,
+  onChange,
+}) {
   const [hidePassword, setHidePassword] = useState(true);
 
   function togglePasswordDisplay() {
@@ -13,13 +19,8 @@ export default function FormInput({ type, placeholder, label }) {
   }
 
   return (
-    <div className={style.inputField}>
-      <label
-        className={style.inputLabel}
-        htmlFor={`user${label.split(" ").join("")}`}
-      >
-        {label}
-      </label>
+    <label className={style.inputLabel}>
+      {label}
 
       <div className={style.inputDiv}>
         <input
@@ -29,10 +30,12 @@ export default function FormInput({ type, placeholder, label }) {
           }
           placeholder={placeholder}
           id={`user${label.split(" ").join("")}`}
+          name={name}
+          onChange={onChange}
         />
 
         {type === "password" && (
-          <span className={style.showIcon} onClick={togglePasswordDisplay}>
+          <span onClick={togglePasswordDisplay}>
             {
               <ShowIcon
                 fill={hidePassword ? "#BCB7B7" : "black"}
@@ -42,6 +45,6 @@ export default function FormInput({ type, placeholder, label }) {
           </span>
         )}
       </div>
-    </div>
+    </label>
   );
 }
