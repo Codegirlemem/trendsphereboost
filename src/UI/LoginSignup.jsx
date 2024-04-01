@@ -14,7 +14,7 @@ export function CheckAccount({ signup }) {
   return (
     <p className={style.check}>
       {signup ? `Already have an account` : `Don't have an account yet?`}{" "}
-      <Link to={signup ? "/login" : "/signup"} className={style.link}>
+      <Link to={signup ? "/login" : "/trendsphereboost"} className={style.link}>
         {signup ? "Login" : "Sign up"}
       </Link>
     </p>

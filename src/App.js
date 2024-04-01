@@ -8,7 +8,7 @@ import Verification from "./pages/Verification";
 function App() {
   return (
     <Routes>
-      <Route path="/signup" element={<SignUp />} />
+      <Route path="/trendsphereboost" element={<SignUp />} />
       <Route path="/login" element={<Login />} />
       <Route path="/reset-password" element={<ResetPassword />} />
       <Route path="/reset-password/verification" element={<Verification />} />
