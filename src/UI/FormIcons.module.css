@@ -1,0 +1,88 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 160%;
+}
+
+.checkboxDiv {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+#checkbox {
+  width: 23px;
+  height: 23px;
+  cursor: pointer;
+}
+
+.conditions {
+  color: #002f5f;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 160%;
+  text-decoration-line: underline;
+}
+
+.password {
+  cursor: pointer;
+}
+
+.errorMsg {
+  color: red;
+  margin-top: 5px;
+  font-size: 12px;
+}
+
+/* Logo styling */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  /* margin-bottom: 107px; */
+}
+
+.logoName {
+  /* color: #ff5733; */
+  font-family: "Exo", sans-serif;
+  /* font-size: 17.266px; */
+  text-align: start;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 120%; /* 20.719px */
+}
+
+#signupImgDiv {
+  width: 450px;
+  height: 450px;
+  /* border: 2px solid white; */
+  /* flex-shrink: 0; */
+  background-color: white;
+  display: flex;
+  /* align-items: center; */
+  justify-content: flex-end;
+  border-radius: 50%;
+  overflow: hidden;
+  /* position: absolute;
+  bottom: -105px;
+  left: -70px; */
+  /* margin-left: -210px;
+  margin-bottom: -100px; */
+}
+
+#signupImg {
+  background-color: white;
+  width: 370px;
+  /* height: 305px; */
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-shrink: 0;
+}

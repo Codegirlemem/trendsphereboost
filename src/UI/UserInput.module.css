@@ -1,0 +1,46 @@
+.inputLabel {
+  color: #b0b0b0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.star {
+  color: red;
+}
+
+.inputLabel .userInput {
+  flex: 1;
+  color: #5e5e5e;
+  border: none;
+  outline: none;
+}
+
+.inputLabel .userInput::placeholder {
+  color: #5e5e5e;
+}
+
+.inputDiv {
+  width: 450px;
+  height: 44px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  border: 0.5px solid #9b9b9b;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.defaultError {
+  color: #b0b0b0;
+  font-size: 14px;
+}
+.errorMsg {
+  color: red;
+  /* margin-top: 10px; */
+  font-size: 14px;
+}
