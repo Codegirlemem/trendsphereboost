@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
+
 import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
 import ResetPassword from "./pages/ResetPassword";
@@ -15,6 +16,7 @@ function App() {
     </Routes>
     // <div className="App">
     // </div>
+
   );
 }
 

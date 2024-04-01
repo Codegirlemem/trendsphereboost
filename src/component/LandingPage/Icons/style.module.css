@@ -1,0 +1,8 @@
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  margin-top: 80px;
+  margin-top: 50px;
+}
