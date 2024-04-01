@@ -19,6 +19,7 @@
   height: 23px;
   cursor: pointer;
 }
+
 .conditions {
   color: #002f5f;
   font-family: "Montserrat", sans-serif;
@@ -33,6 +34,13 @@
   cursor: pointer;
 }
 
+.errorMsg {
+  color: red;
+  margin-top: 5px;
+  font-size: 12px;
+}
+
+/* Logo styling */
 .logo {
   display: flex;
   align-items: center;

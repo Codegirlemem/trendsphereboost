@@ -1,8 +1,6 @@
 import style from "./Verification.module.css";
 import { Link } from "react-router-dom";
 
-import UserInput from "../UI/UserInput";
-
 import { BackArrow } from "../UI/FormIcons";
 import Button from "../UI/Button";
 import EnterCode from "../UI/EnterCode";
@@ -10,11 +8,10 @@ import EnterCode from "../UI/EnterCode";
 export default function Verification() {
   return (
     <main className={style.container}>
-      <div>
-        <Link className={style.goBack} to="/password-reset">
-          <BackArrow />
-        </Link>
-
+      <Link className={style.goBack} to="/password-reset">
+        <BackArrow />
+      </Link>
+      <div className={style.wrapper}>
         <header className={style.header}>
           <h1>Enter verification code</h1>
           <p>We just sent a verification code to example@gmail.com</p>
