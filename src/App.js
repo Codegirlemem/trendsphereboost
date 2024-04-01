@@ -11,6 +11,7 @@ import LandingPage from "./component/LandingPage/LandingPage.js";
 function App() {
   return (
     <Routes>
+      <Route path="/landing-page" element={<LandingPage />} />
       <Route path="/trendsphereboost" element={<SignUp />} />
       <Route path="/login" element={<Login />} />
       <Route path="/reset-password" element={<ResetPassword />} />
