@@ -1,23 +1,22 @@
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import { Header } from "./component/LandingPage/Header";
-import { Hero } from "./component/LandingPage/Hero";
-import { Icons } from "./component/LandingPage/Icons";
-import { Stats } from "./component/LandingPage/Stats";
-import { Profile } from "./component/LandingPage/Profile";
-import { UpdatedNews } from "./component/LandingPage/UpdatedNews";
-import { Footer } from "./component/LandingPage/Footer";
+
+import SignUp from "./pages/SignUp";
+import Login from "./pages/Login";
+import ResetPassword from "./pages/ResetPassword";
+import Verification from "./pages/Verification";
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <Hero />
-      <Icons />
-      <Stats />
-      <Profile />
-      <UpdatedNews />
-      <Footer />
-    </div>
+    <Routes>
+      <Route path="/trendsphereboost" element={<SignUp />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/reset-password" element={<ResetPassword />} />
+      <Route path="/reset-password/verification" element={<Verification />} />
+    </Routes>
+    // <div className="App">
+    // </div>
+
   );
 }
 

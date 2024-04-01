@@ -1,0 +1,22 @@
+.codes {
+  display: flex;
+  gap: 36px;
+}
+
+.code {
+  width: 80px;
+  height: 84px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 10px 16px;
+  border-radius: 16px;
+  background: #f0f0f4;
+  outline: none;
+}
+.code::-webkit-inner-spin-button,
+.code::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

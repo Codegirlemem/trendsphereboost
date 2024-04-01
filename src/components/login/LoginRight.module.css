@@ -1,0 +1,42 @@
+.container {
+  /* flex: 1; */
+  /* width: 50%; */
+  background-color: #002f5f;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 55% 45%;
+}
+
+.image img {
+  width: 100%;
+  height: 100%;
+}
+
+.loginText {
+  padding: 56px;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  background-color: #002f5f;
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 140%; /* 33.6px */
+}
+/* .loginText div {
+  width: 580px;
+  text-align: center;
+} */
+
+.heading {
+  font-family: "Exo", sans-serif;
+  font-size: 48px;
+  font-weight: 500;
+  line-height: 160%; /* 76.8px */
+}
