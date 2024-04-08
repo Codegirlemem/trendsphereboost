@@ -1,7 +1,13 @@
 import { useEffect, useReducer, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export function useLoginDetails(newUser, setInputValue, account, validateForm) {
+export function useLoginDetails(
+  newUser,
+  setInputValue,
+  account,
+  validateForm,
+  url
+) {
   const [isLoading, setIsLoading] = useState(false);
   const [formError, setFormError] = useState(false);
 
@@ -22,6 +28,7 @@ export function useLoginDetails(newUser, setInputValue, account, validateForm) {
     // function checkUser(accounts, newUser) {
 
     // }
+    console.log(validateForm());
 
     if (validateForm()) {
       setIsLoading(true);
@@ -31,10 +38,15 @@ export function useLoginDetails(newUser, setInputValue, account, validateForm) {
         if (!user) {
           setFormError("User does not exist.");
         } else if (user) {
-          if (newUser.password === user.password) {
-            console.log(`User found`);
+          if (newUser.password) {
+            if (newUser.password === user.password) {
+              console.log(`User found`);
+              navigate(url);
+            } else {
+              setFormError("Password is incorrect");
+            }
           } else {
-            setFormError("Password is incorrect");
+            navigate(url);
           }
         }
 
