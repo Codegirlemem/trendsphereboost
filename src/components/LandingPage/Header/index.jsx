@@ -1,6 +1,7 @@
 import style from "./style.module.css";
 import CustomButton from "../Button";
 import trendSphere from "../../../assets/LandingPage/icons/trendsphere-icon.svg";
+import { Link } from "react-router-dom";
 
 export const Header = () => {
   return (
@@ -29,7 +30,9 @@ export const Header = () => {
             </li>
           </ul>
         </div>
-        <CustomButton variant="bordered" text="Sign up" />
+        <Link to="/signup">
+          <CustomButton variant="bordered" text="Sign up" />
+        </Link>
       </section>
       <div className={style.section2}>
         <h1 className={style.boost}>
@@ -44,7 +47,10 @@ export const Header = () => {
           <br /> competitive digital sphere
         </p>
         <div className={style.btn}>
-          <CustomButton variant="black" text="Sign up" />
+          <Link to="/signup">
+            <CustomButton variant="black" text="Sign up" />
+          </Link>
+
           <CustomButton variant="bordered" text="Learn more" />
         </div>
       </div>

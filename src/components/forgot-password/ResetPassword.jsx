@@ -1,17 +1,18 @@
-import "../index.css";
 import style from "./ResetPassword.module.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import DisplayError from "../../UI/DisplayError";
 
-import UserInput from "../UI/UserInput";
-import Button from "../UI/Button";
-import { BackArrow } from "../UI/FormIcons";
+import UserInput from "../../UI/UserInput";
+import Button from "../../UI/Button";
+import { BackArrow } from "../../UI/FormIcons";
 import axios from "axios";
 
 export default function ResetPassword() {
   const [formData, setFormData] = useState({
     userEmail: "",
   });
+
   const [errors, setErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false);
 
@@ -72,7 +73,7 @@ export default function ResetPassword() {
         ...values,
         userEmail: "",
       }));
-      navigate("/reset - password / verification");
+      navigate("/reset-password/verification");
     } else {
       // alert("user input not valid");
       console.log(errors);
@@ -81,9 +82,9 @@ export default function ResetPassword() {
 
   return (
     <main className={style.container}>
-      {isLoading ? (
-        <div>Loading....</div>
-      ) : (
+      {isLoading && <div>Loading....</div>}
+
+      {!isLoading && (
         <div>
           {/* <Verification /> */}
           <Link to="/login" className={style.goBack}>

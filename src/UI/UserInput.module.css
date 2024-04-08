@@ -1,9 +1,9 @@
 .inputLabel {
   color: #b0b0b0;
   display: flex;
+  /* width: 450px; */
   flex-direction: column;
   gap: 8px;
-  width: 100%;
   font-family: "Inter", sans-serif;
   font-size: 16px;
   font-style: normal;

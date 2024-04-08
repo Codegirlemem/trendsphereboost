@@ -7,17 +7,22 @@ import Facebook from "../../../assets/LandingPage/icons/facebook.svg";
 export const socialIcons = [
   {
     icon: Youtube,
+    name: "youtube",
   },
   {
     icon: Pinterest,
+    name: "pinterest",
   },
   {
     icon: Twitter,
+    name: "twitter",
   },
   {
     icon: LinkedIn,
+    name: "linkedin",
   },
   {
     icon: Facebook,
+    name: "facebook",
   },
 ];

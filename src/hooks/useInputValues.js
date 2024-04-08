@@ -1,34 +1,31 @@
 import { useEffect, useState } from "react";
 
-export function useInputValues(account) {
+export function useInputValues(account, signup) {
   const [inputValue, setInputValue] = useState({
     ...account,
   });
   const [inputErrors, setinputErrors] = useState({});
-
-  useEffect(
-    function () {
-      validateForm();
-    },
-    [inputValue]
-  );
 
   function handleInputChange(name, value) {
     setInputValue({ ...inputValue, [name]: value });
     // validateForm();
   }
 
+  console.log();
+
   function validateForm() {
     const invalidValues = {};
     let isValid = true;
 
-    const passwordTest = /^[0-9A-Za-z]{6,}$/.test(inputValue.userPassword);
-
-    const emailTest = /^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4})$/.test(
-      inputValue.userEmail
+    const passwordTest = /^[0-9A-Za-z]{6,}$/.test(
+      inputValue.userPassword?.trim()
     );
 
-    if (inputValue.userName.length > 0) {
+    const emailTest = /^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4})$/.test(
+      inputValue.userEmail?.trim()
+    );
+
+    if (inputValue.userName?.length > 0) {
       if (!inputValue.userName?.trim()) {
         invalidValues.userName =
           "Name is required and cannot start with a space";
@@ -53,8 +50,8 @@ export function useInputValues(account) {
       invalidValues.userPassword =
         "Password must be atleast six characters long with letters or numbers.";
       isValid = false;
-    } else if (inputValue.userPassword) {
-      if (inputValue.confirmedPassword.length === 0) {
+    } else if (signup && inputValue.userPassword) {
+      if (inputValue.confirmedPassword?.length === 0) {
         invalidValues.confirmedPassword = "Confirm your password";
         isValid = false;
       } else if (inputValue.userPassword !== inputValue.confirmedPassword) {
@@ -62,15 +59,28 @@ export function useInputValues(account) {
         isValid = false;
       }
     }
-
-    if (!inputValue.checkbox) {
-      invalidValues.checkbox = "Not checked";
-      isValid = false;
+    if (signup) {
+      if (!inputValue.checkbox) {
+        invalidValues.checkbox = "Not checked";
+        isValid = false;
+      }
     }
 
     setinputErrors({ ...invalidValues });
     return isValid;
   }
 
-  return [inputValue, inputErrors, validateForm, handleInputChange];
+  useEffect(
+    function () {
+      validateForm();
+    },
+    [inputValue]
+  );
+  return [
+    inputValue,
+    inputErrors,
+    validateForm,
+    handleInputChange,
+    setInputValue,
+  ];
 }

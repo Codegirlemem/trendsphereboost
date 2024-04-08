@@ -8,36 +8,10 @@ import { useEffect, useState } from "react";
 export default function UserInput(props) {
   const { type, placeholder, label, name, value, handleChange, errors } = props;
 
-  // useEffect(
-  //   function () {
-  //     function setChanges() {
-  //       handleChange(name, value);
-  //     }
-  //     setChanges();
-  //   },
-  //   [name, value]
-  // );
-
-  // useEffect(
-  //   function handleInputChange(name, value) {
-  //     setFormData({ ...formData, [name]: value });
-  //     validateForm();
-  //   },
-  //   [{ ...formData }]
-  // );
-
   const [hidePassword, setHidePassword] = useState(true);
   function togglePasswordDisplay() {
     setHidePassword(!hidePassword);
   }
-
-  // function setMinLength() {
-  //   if (name === "userPassword" || name === "confirmedPassword") {
-  //     return 6;
-  //   } else if (name === "userName") {
-  //     return 4;
-  //   }
-  // }
 
   return (
     <label className={style.inputLabel}>
@@ -58,7 +32,6 @@ export default function UserInput(props) {
           value={value}
           onChange={(e) => handleChange(e.target.name, e.target.value)}
         />
-        {/* {onErrors[name] && <span>{onErrors[name]}</span>} */}
 
         {type === "password" && (
           <span onClick={togglePasswordDisplay}>

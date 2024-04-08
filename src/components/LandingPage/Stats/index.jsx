@@ -5,7 +5,7 @@ export const Stats = () => {
     <div className={style.stats}>
       {socialStats.map((stat) => {
         return (
-          <div className={style.border}>
+          <div key={stat.title} className={style.border}>
             <h3>{stat.stat}</h3>
             <p>{stat.title}</p>
             <p></p>

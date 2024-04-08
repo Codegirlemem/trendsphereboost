@@ -1,9 +1,9 @@
 import style from "./Verification.module.css";
 import { Link } from "react-router-dom";
 
-import { BackArrow } from "../UI/FormIcons";
-import Button from "../UI/Button";
-import EnterCode from "../UI/EnterCode";
+import { BackArrow } from "../../UI/FormIcons";
+import Button from "../../UI/Button";
+import EnterCode from "../../UI/EnterCode";
 
 export default function Verification() {
   return (
@@ -12,7 +12,15 @@ export default function Verification() {
         <BackArrow />
       </Link>
       <div className={style.wrapper}>
-        <header className={style.header}>
+        <h1 className={style.heading}>Enter verification code</h1>
+        <p>We just sent a verification code to example@gmail.com</p>
+
+        <form className={style.form}>
+          <EnterCode />
+          <p className={style.para}>Send code again</p>
+          <Button color="#485F85" name="btnWide" btnType="Continue" />
+        </form>
+        {/* <header className={style.header}>
           <h1>Enter verification code</h1>
           <p>We just sent a verification code to example@gmail.com</p>
         </header>
@@ -21,7 +29,7 @@ export default function Verification() {
           <EnterCode />
           <p className={style.para}>Send code again</p>
           <Button color="#485F85" name="btnWide" btnType="Continue" />
-        </form>
+        </form> */}
       </div>
     </main>
   );

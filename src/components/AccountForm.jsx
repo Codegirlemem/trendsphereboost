@@ -14,6 +14,7 @@ export default function AccountForm(props) {
     children,
   } = props;
   // console.log(handleData);
+
   // console.log(handleCheckbox);
   return (
     <>
