@@ -1,14 +1,17 @@
 .inputLabel {
   color: #b0b0b0;
   display: flex;
+  /* width: 450px; */
   flex-direction: column;
   gap: 8px;
-  width: 100%;
   font-family: "Inter", sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+}
+.star {
+  color: red;
 }
 
 .inputLabel .userInput {
@@ -31,4 +34,13 @@
   display: flex;
   align-items: center;
   gap: 20px;
+}
+.defaultError {
+  color: #b0b0b0;
+  font-size: 14px;
+}
+.errorMsg {
+  color: red;
+  /* margin-top: 10px; */
+  font-size: 14px;
 }

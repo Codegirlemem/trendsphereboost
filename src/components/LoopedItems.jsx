@@ -7,21 +7,23 @@ import Instagram from "../assets/icons/instagram.svg";
 import Twitter from "../assets/icons/twitter.svg";
 import Linkedin from "../assets/icons/linkedin.svg";
 
-export function FormInputs({ inputDetails }) {
-  return (
-    <>
-      {inputDetails.map((detail, index) => {
-        return (
-          <UserInput
-            key={`user_${detail.type}${index}`}
-            type={detail.type}
-            placeholder={detail.placeholder}
-            label={detail.label}
-          />
-        );
-      })}
-    </>
-  );
+export function FormInputs(props) {
+  const { inputDetails, inputValue, handleChange, errors } = props;
+
+  return inputDetails.map((detail, index) => {
+    return (
+      <UserInput
+        key={`user_${detail.type}${index}`}
+        type={detail.type}
+        placeholder={detail.placeholder}
+        label={detail.label}
+        name={detail.name}
+        value={inputValue[detail.name]}
+        errors={errors}
+        handleChange={handleChange}
+      />
+    );
+  });
 }
 
 const iconArray = [Google, Facebook, Instagram, Twitter, Linkedin];

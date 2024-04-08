@@ -2,16 +2,19 @@
   /* flex: 1; */
   /* width: 50%; */
   display: flex;
-  justify-content: center;
-  padding: 50px 50px 30px 50px;
+  /* justify-content: center; */
+  padding: 80px 50px 60px 120px;
   border-radius: 24px;
   background-color: #fff;
+  /* background-color: green; */
 }
 
 .wrapper {
   width: 450px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  background-color: white;
   /* justify-content: space-between;  */
 }
 .header {
@@ -39,9 +42,15 @@
 }
 
 .form {
-  flex: 1;
+  /* flex: 1; */
+  justify-self: flex-start;
+  justify-items: flex-start;
   display: flex;
   align-items: stretch;
   /* background-color: blue; */
-  margin-bottom: 55px;
+  margin-bottom: 80px;
+}
+
+.checkbox {
+  margin-bottom: 20px;
 }

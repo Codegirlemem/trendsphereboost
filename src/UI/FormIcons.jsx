@@ -5,26 +5,57 @@ import SignupImage from "../assets/images/signup-img.svg";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { BsArrowLeft } from "react-icons/bs";
+import { useEffect } from "react";
 
 // CHECKBOX AND ITS AGREEMENT MESSAGE
-export function CheckboxAgreement({ signup }) {
+export function CheckboxAgreement(props) {
+  const { onChecked, handleData, signup, errors, value } = props;
+
+  useEffect(
+    function () {
+      function setChanges() {
+        handleData("checkbox", value);
+      }
+      setChanges();
+    },
+    [value]
+  );
+
+  const handleCheckbox = (e) => {
+    onChecked(!value);
+    handleData(e.target.name, !value);
+    // {(e) => handleChange(e.target.name, e.target.value)}
+  };
   return (
     <div className={style.container}>
-      <div className={style.checkboxDiv}>
-        <input id={style.checkbox} type="checkbox" />
-        {signup ? (
-          <p>
-            I agree to the{" "}
-            <a className={style.conditions} href="https://www.facebook.com">
-              terms of services
-            </a>{" "}
-            and{" "}
-            <a className={style.conditions} href="https://www.facebook.com">
-              privacy policy
-            </a>
-          </p>
-        ) : (
-          <p>Keep me logged in</p>
+      <div>
+        <div className={style.checkboxDiv}>
+          <input
+            id={style.checkbox}
+            type="checkbox"
+            name="checkbox"
+            value={value}
+            checked={value}
+            onChange={handleCheckbox}
+          />
+          {signup ? (
+            <p>
+              I agree to the{" "}
+              <a className={style.conditions} href="https://www.facebook.com">
+                terms of services
+              </a>{" "}
+              and{" "}
+              <a className={style.conditions} href="https://www.facebook.com">
+                privacy policy
+              </a>
+            </p>
+          ) : (
+            <p>Keep me logged in</p>
+          )}
+        </div>
+        {/* <p>Please check the aggrement box</p> */}
+        {signup && errors.checkbox === "Not checked" && !value && (
+          <p className={style.errorMsg}>Please check the aggrement box</p>
         )}
       </div>
       {!signup && (

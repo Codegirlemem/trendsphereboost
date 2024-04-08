@@ -1,0 +1,31 @@
+.boostprofile {
+  text-align: center;
+  margin-top: 70px;
+}
+.trendsphere {
+  color: #002f5f;
+  font-family: Exo;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 80%;
+  text-decoration: underline;
+}
+.p2 {
+  color: #4b4b4b;
+  text-align: center;
+  font-family: Montserrat;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 160%;
+}
+.socialsection {
+  margin-top: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.content {
+  text-align: right;
+}

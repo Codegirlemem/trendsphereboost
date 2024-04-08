@@ -1,11 +1,18 @@
 .container {
-  padding-left: 150px;
-  padding-top: 110px;
+  padding: 110px 100px 50px;
   min-height: 100dvh;
 
   /* display: flex; */
   /* align-items: center; */
   /* justify-content: center; */
+}
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 53px;
+  font-family: "Montserrat" sans-serif;
+  /* background-color: #ff5733; */
 }
 
 .goBack {
@@ -15,22 +22,21 @@
 }
 
 .header {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 34px;
-  margin-bottom: 67px;
-
-  /* color: #3f5579; */
+  gap: 34px; */
+  /* text-align: center;
+  margin-bottom: 53px;
   font-family: "Montserrat" sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
-  line-height: 160%; /* 22.4px */
+  line-height: 160%; 22.4px */
 }
 
-.header h1 {
-  font-family: "Exo" sans-serif;
+.heading {
+  /* font-family: "Exo" sans-serif; */
   font-size: 32px;
   font-style: normal;
   font-weight: 600;
@@ -38,12 +44,13 @@
 }
 
 .form {
-  margin-top: 67px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 53px;
 }
 
 .para {
-  margin-top: 40px;
-  margin-bottom: 70px;
   color: #ff5733;
-  font-family: "Montserrat";
+  /* font-family: "Montserrat"; */
 }
