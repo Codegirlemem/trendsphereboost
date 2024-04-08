@@ -6,11 +6,13 @@ import { CheckAccount, DividerText } from "../../UI/LoginSignup";
 import { CheckboxAgreement } from "../../UI/FormIcons";
 import { inputArray } from "./data";
 import { Logo } from "../../UI/FormIcons";
-import DisplayError from "../../UI/DisplayError";
 
 import { useLoginDetails, useInputValues } from "../../hooks/formhooks";
 
 import { useState } from "react";
+import DisplayError from "../../UI/DisplayError";
+
+import { useNavigate } from "react-router-dom";
 
 export default function LoginLeftSection() {
   const [isChecked, setIsChecked] = useState(false);
@@ -34,12 +36,14 @@ export default function LoginLeftSection() {
     email: inputValue.userEmail?.trim(),
     password: inputValue.userPassword?.trim(),
   };
+  const url = "/login";
 
   const [isLoading, formError, handleForm, setFormError] = useLoginDetails(
     newUser,
     setInputValue,
     account,
-    validateForm
+    validateForm,
+    url
   );
 
   return (
