@@ -16,7 +16,8 @@ function App() {
   return (
     <AuthProvider>
       <Routes>
-        <Route path="/trendsphereboost" element={<LandingPage />} />
+        <Route index element={<LandingPage />} />
+        <Route path="/" element={<LandingPage />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
         <Route path="/reset-password" element={<ResetPassword />}>
