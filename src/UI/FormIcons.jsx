@@ -1,11 +1,11 @@
-import style from "./FormIcons.module.css";
-import BlueLogo from "../assets/icons/blueLogo.svg";
-import OrangeLogo from "../assets/icons/orangeLogo.svg";
-import SignupImage from "../assets/images/signup-img.svg";
-import { Link, useNavigate } from "react-router-dom";
-import styled from "styled-components";
-import { BsArrowLeft } from "react-icons/bs";
-import { useEffect } from "react";
+import style from './FormIcons.module.css';
+import BlueLogo from '../assets/icons/blueLogo.svg';
+import OrangeLogo from '../assets/icons/orangeLogo.svg';
+import SignupImage from '../assets/images/signup-img.svg';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+import { BsArrowLeft } from 'react-icons/bs';
+import { useEffect } from 'react';
 
 // CHECKBOX AND ITS AGREEMENT MESSAGE
 export function CheckboxAgreement(props) {
@@ -13,7 +13,7 @@ export function CheckboxAgreement(props) {
 
   useEffect(function () {
     function setChanges() {
-      handleData("checkbox", value);
+      handleData('checkbox', value);
     }
     setChanges();
   }, []);
@@ -37,11 +37,11 @@ export function CheckboxAgreement(props) {
           />
           {signup ? (
             <p>
-              I agree to the{" "}
+              I agree to the{' '}
               <a className={style.conditions} href="https://www.facebook.com">
                 terms of services
-              </a>{" "}
-              and{" "}
+              </a>{' '}
+              and{' '}
               <a className={style.conditions} href="https://www.facebook.com">
                 privacy policy
               </a>
@@ -51,7 +51,7 @@ export function CheckboxAgreement(props) {
           )}
         </div>
         {/* <p>Please check the aggrement box</p> */}
-        {signup && errors.checkbox === "Not checked" && !value && (
+        {signup && errors.checkbox === 'Not checked' && !value && (
           <p className={style.errorMsg}>Please check the aggrement box</p>
         )}
       </div>
@@ -72,17 +72,17 @@ export function Logo({ logo }) {
   return (
     <div className={style.logo}>
       <div>
-        {" "}
+        {' '}
         <img
-          src={logo === "orange" ? OrangeLogo : BlueLogo}
+          src={logo === 'orange' ? OrangeLogo : BlueLogo}
           alt="Trendsphere Boost logo"
         />
       </div>
       <span
         style={
-          logo === "orange"
-            ? { fontSize: "17.266px", color: "#FF5733" }
-            : { fontSize: "13.349px", color: "#0F3054" }
+          logo === 'orange'
+            ? { fontSize: '17.266px', color: '#FF5733' }
+            : { fontSize: '13.349px', color: '#0F3054' }
         }
         className={style.logoName}
       >

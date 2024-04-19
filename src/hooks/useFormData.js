@@ -1,9 +1,7 @@
-import { useReducer, useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAccounts } from './formhooks';
 import { SubmitSignupData } from './SubmitSignupData';
-import { SubmitLoginData } from './SubmitLoginData';
-import { getStoredAccounts, useFetchAccounts } from './useFetchAccounts';
+import { useFetchAccounts } from './useFetchAccounts';
 
 const apiURL = 'http://localhost:9000/accounts';
 
@@ -30,7 +28,7 @@ export function useSubmitForm(
   const [isLoading, setIsLoading] = useState(false);
   const [formError, setFormError] = useState(false);
 
-  const [users, error] = useFetchAccounts(apiURL);
+  const [users] = useFetchAccounts(apiURL);
   // const users = [];
 
   // const [state, dispatch] = useReducer(reducer, initialState)
@@ -86,6 +84,7 @@ export function useSubmitForm(
             navigate,
           };
           console.log(users);
+          console.log(data);
           // SubmitLoginData(data);
         }
       } else if (type === 'reset-password') {

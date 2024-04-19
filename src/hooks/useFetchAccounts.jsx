@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import axios from 'axios';
 
 export function useFetchAccounts(url) {
