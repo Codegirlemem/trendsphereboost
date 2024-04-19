@@ -1,66 +1,139 @@
-import { useEffect, useReducer, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useReducer, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useAccounts } from './formhooks';
+import { SubmitSignupData } from './SubmitSignupData';
+import { SubmitLoginData } from './SubmitLoginData';
+import { getStoredAccounts, useFetchAccounts } from './useFetchAccounts';
 
-export function useSubmitForm(newUser, setInputValue, account, validateForm) {
+const apiURL = 'http://localhost:9000/accounts';
+
+// const initialState = {
+//   status: "default",
+
+// }
+
+// function reducer(state, action) {
+//   switch(action.type) {
+//     case ""
+//   }
+// }
+
+export function useSubmitForm(
+  userData,
+  setInputValue,
+  account,
+  isValid,
+  type,
+  nextPage,
+) {
+  // const [state, dispatch] = useReducer(reducer, initialState)
   const [isLoading, setIsLoading] = useState(false);
   const [formError, setFormError] = useState(false);
-  const [status, setStatus] = useState(false);
+
+  const [users, error] = useFetchAccounts(apiURL);
+  // const users = [];
+
+  // const [state, dispatch] = useReducer(reducer, initialState)
+  // useEffect(function () {
+  //   const [users] = useAccounts(apiURL, setFormError);
+  // }, []);
 
   // const [state, dispatch] = useReducer(reducer, initialState);
   const navigate = useNavigate();
 
-  function getStoredAccounts() {
-    const storedItems = localStorage.getItem("accounts");
-    return storedItems ? JSON.parse(storedItems) : [];
-  }
+  // useAccounts(apiURL, setFormError);
+
+  // async function getStoredAccounts() {
+  //   const storedItems = localStorage.getItem("accounts");
+  //   return storedItems ? JSON.parse(storedItems) : [];
+
+  // }
+  // const [users] = useAccounts(apiURL, setFormError);
 
   function handleForm(event) {
     event.preventDefault();
 
-    const accounts = getStoredAccounts();
-    console.log(accounts);
-    const users = [...accounts, newUser];
-    if (validateForm()) {
-      setIsLoading(true);
-      console.log(validateForm());
-      try {
-        const user = accounts.find((acc) => acc.email === newUser.email);
-        console.log(user);
-        if (!user) {
-          localStorage.setItem("accounts", JSON.stringify(users));
-          setIsLoading(false);
-          setStatus(true);
-          setTimeout(() => {
-            navigate("/login");
-          }, 1000);
-        } else if (user) {
-          throw new Error(
-            "User already exist. Sign up with a different email acccount"
-          );
-          // setIsLoading(false);
-          // setFormError("User already exist. Sign up with a different email acccount")
-        }
+    console.log(users);
+    // const accounts = getStoredAccounts();
+    // const accounts = users ? [] : users;
 
-        // localStorage.setItem("accounts", JSON.stringify(users));
-        // setIsLoading(false);
-        // setStatus(true);
-        // setTimeout(() => {
-        //   navigate("/login");
-        // }, 1000);
-      } catch (err) {
-        console.log(err);
-        setIsLoading(false);
-        setFormError(err.message);
-      } finally {
-        setInputValue({ ...account });
-        setTimeout(() => {
-          setStatus(false);
-        }, 1000);
+    // const updatedUsers = [...accounts, newUser];
+    if (isValid) {
+      if (type === 'signup' || type === 'login') {
+        const user = users.find((acc) => acc.email === userData.email);
+
+        if (type === 'signup') {
+          const data = {
+            user,
+            userData,
+            account,
+            nextPage,
+            apiURL,
+            setIsLoading,
+            setFormError,
+            setInputValue,
+            navigate,
+          };
+          SubmitSignupData(data);
+        } else if (type === 'login') {
+          const data = {
+            user,
+            userData,
+            account,
+            nextPage,
+            setFormError,
+            setInputValue,
+            navigate,
+          };
+          console.log(users);
+          // SubmitLoginData(data);
+        }
+      } else if (type === 'reset-password') {
       }
     } else {
-      setIsLoading(false);
-      setFormError("Ensure all input fields are filled or ticked");
+      setFormError('Ensure all input fields are filled or ticked');
     }
   }
-  return [isLoading, status, formError, handleForm, setFormError];
+  return [isLoading, formError, handleForm, setFormError];
 }
+
+// function SubmitSignupData(data) {
+//   const {
+//     user,
+//     userData,
+//     account,
+//     nextPage,
+//     apiURL,
+//     setIsLoading,
+//     setFormError,
+//     setInputValue,
+//     navigate,
+//   } = data;
+
+//   if (!user) {
+//     async function postAccount() {
+//       //   const navigate = useNavigate();
+//       setIsLoading(true);
+//       try {
+//         const response = await axios.post(apiURL, userData);
+
+//         console.log(response);
+//         if (response.status === 201) {
+//           setInputValue({ ...account });
+//           navigate(nextPage);
+//         }
+//       } catch (error) {
+//         setFormError(`${error.code}: ${error.message}`);
+//         console.log(error);
+//         return error;
+//       } finally {
+//         setIsLoading(false);
+//       }
+//     }
+//     postAccount();
+//   } else if (user) {
+//     setFormError(
+//       "This account already exist. Sign up with a different email acccount or go to Login and reset password if you have forgotten your password."
+//     );
+//   }
+// }

@@ -4,11 +4,21 @@ import { Link } from "react-router-dom";
 import { BackArrow } from "../../UI/FormIcons";
 import Button from "../../UI/Button";
 import EnterCode from "../../UI/EnterCode";
+import { useContext } from "react";
+import { PasswordContext } from "./ResetPassword";
 
-export default function Verification() {
+export default function Verification({ otp }) {
+  console.log(otp);
+  const { dispatch, OTP_Code } = useContext(PasswordContext);
+  console.log(dispatch);
+
   return (
     <main className={style.container}>
-      <Link className={style.goBack} to="/password-reset">
+      <Link
+        onClick={() => dispatch({ type: "back" })}
+        to="/reset-password"
+        className={style.goBack}
+      >
         <BackArrow />
       </Link>
       <div className={style.wrapper}>
