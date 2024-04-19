@@ -1,10 +1,10 @@
 import LandingPage from './pages/LandingPage';
 
-// import { Route, Routes } from 'react-router-dom';
-// import './App.css';
+import { Route, Routes } from 'react-router-dom';
+import './App.css';
 
-// import SignUp from './pages/SignUp';
-// import Login from './pages/Login';
+import SignUp from './pages/SignUp';
+import Login from './pages/Login';
 // import ResetPassword from './components/forgot-password/ResetPassword';
 // import NewPassword from './components/forgot-password/NewPassword';
 // import Dashboard from './pages/Dashboard';
