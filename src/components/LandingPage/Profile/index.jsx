@@ -1,8 +1,8 @@
-import CustomButton from "../Button";
-import style from "./style.module.css";
-import profileBranding from "../../../assets/LandingPage/images/profilebranding.svg";
-import contentImage from "../../../assets/LandingPage/images/contentImage.svg";
-import profileOptimization from "../../../assets/LandingPage/images/profileOptimization.svg";
+import CustomButton from '../Button';
+import style from './style.module.css';
+import profileBranding from '../../../assets/LandingPage/images/profilebranding.svg';
+import contentImage from '../../../assets/LandingPage/images/contentImage.svg';
+import profileOptimization from '../../../assets/LandingPage/images/profileOptimization.svg';
 export const Profile = () => {
   return (
     <section>
@@ -28,12 +28,12 @@ export const Profile = () => {
           <CustomButton variant="bordered" text="Enabled" />
         </div>
         <div>
-          <img src={profileBranding} />
+          <img src={profileBranding} alt="profile branding" />
         </div>
       </div>
       <div className={style.socialsection}>
         <div>
-          <img src={contentImage} />
+          <img src={contentImage} alt="content" />
         </div>
         <div className={style.content}>
           <h1>CONTENT MARKETING</h1>
@@ -63,7 +63,7 @@ export const Profile = () => {
           <CustomButton variant="bordered" text="Enabled" />
         </div>
         <div>
-          <img src={profileOptimization} />
+          <img src={profileOptimization} alt="profile optimisation" />
         </div>
       </div>
     </section>

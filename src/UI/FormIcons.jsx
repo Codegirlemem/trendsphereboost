@@ -9,14 +9,15 @@ import { useEffect } from 'react';
 
 // CHECKBOX AND ITS AGREEMENT MESSAGE
 export function CheckboxAgreement(props) {
-  const { onChecked, handleData, signup, errors, value } = props;
+  const { onChecked, handleData, signup, invalids, setErrors, errors, value } =
+    props;
 
-  useEffect(function () {
-    function setChanges() {
-      handleData('checkbox', value);
-    }
-    setChanges();
-  }, []);
+  // useEffect(function () {
+  //   function setChanges() {
+  //     handleData('checkbox', value);
+  //   }
+  //   setChanges();
+  // }, []);
 
   const handleCheckbox = (e) => {
     onChecked(!value);

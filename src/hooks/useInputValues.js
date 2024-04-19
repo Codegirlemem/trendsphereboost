@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { validateInput } from "./validateInput";
+import { useEffect, useState } from 'react';
+import { validateInput } from './validateInput';
 
 export function useInputValues(account, signup) {
   const [inputValue, setInputValue] = useState({
@@ -77,7 +77,14 @@ export function useInputValues(account, signup) {
     function () {
       setinputErrors({ ...invalidValues });
     },
-    [inputValue]
+    [inputValue],
   );
-  return [inputValue, inputErrors, isValid, handleInputChange, setInputValue];
+  return [
+    inputValue,
+    inputErrors,
+    isValid,
+    invalidValues,
+    handleInputChange,
+    setInputValue,
+  ];
 }

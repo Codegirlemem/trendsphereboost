@@ -1,20 +1,20 @@
-import style from "./style.module.css";
-import trendSphere from "../../../assets/LandingPage/icons/trendsphere-icon.svg";
-import arrowIcon from "../../../assets/LandingPage/icons/arrowIcon.svg";
-import socialLinks from "../../../assets/LandingPage/icons/socialLinks.svg";
+import style from './style.module.css';
+import trendSphere from '../../../assets/LandingPage/icons/trendsphere-icon.svg';
+import arrowIcon from '../../../assets/LandingPage/icons/arrowIcon.svg';
+import socialLinks from '../../../assets/LandingPage/icons/socialLinks.svg';
 export const Footer = () => {
   return (
     <section className={style.footer}>
       <div className={style.img}>
         <div className={style.image}>
-          <img src={trendSphere} />
+          <img src={trendSphere} alt="logo" />
           <h2>
             Trendsphere
             <br /> Boost
           </h2>
         </div>
         <div className={style.img2}>
-          <img src={arrowIcon} />
+          <img src={arrowIcon} alt="arrow icon" />
         </div>
       </div>
       {/* note */}
@@ -44,7 +44,7 @@ export const Footer = () => {
               className={style.inputupdates}
             />
             <button className={style.btn}>
-              <img src={arrowIcon} className={style.arrow} />
+              <img src={arrowIcon} className={style.arrow} alt="arrow icon" />
             </button>
           </form>
         </div>
@@ -54,7 +54,7 @@ export const Footer = () => {
       <div className={style.links}>
         <div>© 2024 Trendsphere Boost. All rights reserved</div>
         <div>
-          <img src={socialLinks} />
+          <img src={socialLinks} alt="links to social media sites" />
         </div>
       </div>
     </section>
