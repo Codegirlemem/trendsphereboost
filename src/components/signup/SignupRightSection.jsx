@@ -26,6 +26,7 @@ export default function SignupRightSection() {
 
   const [inputValue, inputErrors, isValid, handleInputChange, setInputValue] =
     useInputValues(account, signup);
+  console.log(handleInputChange);
 
   const userData = {
     name: inputValue.userName?.trim(),

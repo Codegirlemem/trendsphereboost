@@ -79,12 +79,5 @@ export function useInputValues(account, signup) {
     },
     [inputValue, invalidValues],
   );
-  return [
-    inputValue,
-    inputErrors,
-    isValid,
-    invalidValues,
-    handleInputChange,
-    setInputValue,
-  ];
+  return [inputValue, inputErrors, isValid, handleInputChange, setInputValue];
 }
