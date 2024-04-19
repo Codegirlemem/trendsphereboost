@@ -77,7 +77,7 @@ export function useInputValues(account, signup) {
     function () {
       setinputErrors({ ...invalidValues });
     },
-    [inputValue],
+    [inputValue, invalidValues],
   );
   return [
     inputValue,

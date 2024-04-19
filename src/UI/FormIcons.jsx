@@ -5,12 +5,10 @@ import SignupImage from '../assets/images/signup-img.svg';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { BsArrowLeft } from 'react-icons/bs';
-import { useEffect } from 'react';
 
 // CHECKBOX AND ITS AGREEMENT MESSAGE
 export function CheckboxAgreement(props) {
-  const { onChecked, handleData, signup, invalids, setErrors, errors, value } =
-    props;
+  const { onChecked, handleData, signup, errors, value } = props;
 
   // useEffect(function () {
   //   function setChanges() {
