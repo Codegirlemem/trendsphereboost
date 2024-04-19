@@ -2,7 +2,7 @@ import style from "./FormIcons.module.css";
 import BlueLogo from "../assets/icons/blueLogo.svg";
 import OrangeLogo from "../assets/icons/orangeLogo.svg";
 import SignupImage from "../assets/images/signup-img.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { BsArrowLeft } from "react-icons/bs";
 import { useEffect } from "react";
@@ -11,15 +11,12 @@ import { useEffect } from "react";
 export function CheckboxAgreement(props) {
   const { onChecked, handleData, signup, errors, value } = props;
 
-  useEffect(
-    function () {
-      function setChanges() {
-        handleData("checkbox", value);
-      }
-      setChanges();
-    },
-    [value]
-  );
+  useEffect(function () {
+    function setChanges() {
+      handleData("checkbox", value);
+    }
+    setChanges();
+  }, []);
 
   const handleCheckbox = (e) => {
     onChecked(!value);

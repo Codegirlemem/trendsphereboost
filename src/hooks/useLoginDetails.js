@@ -16,6 +16,7 @@ export function useLoginDetails(
 
   function getStoredAccounts() {
     const storedItems = localStorage.getItem("accounts");
+
     return storedItems ? JSON.parse(storedItems) : [];
   }
 

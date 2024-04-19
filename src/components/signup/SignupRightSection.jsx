@@ -5,8 +5,7 @@ import { CheckboxAgreement } from "../../UI/FormIcons";
 import { CheckAccount } from "../../UI/LoginSignup";
 import DisplayError from "../../UI/DisplayError";
 import { inputArray } from "./data";
-import { useEffect, useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 import { useInputValues, useSubmitForm } from "../../hooks/formhooks";
 
@@ -14,6 +13,9 @@ export default function SignupRightSection() {
   const [isChecked, setIsChecked] = useState(true);
 
   const signup = true;
+  const type = "signup";
+  const nextPage = "/login";
+
   const account = {
     userName: "",
     userEmail: "",
@@ -22,27 +24,26 @@ export default function SignupRightSection() {
     checkbox: isChecked,
   };
 
-  const [
-    inputValue,
-    inputErrors,
-    validateForm,
-    handleInputChange,
-    setInputValue,
-  ] = useInputValues(account, signup);
+  const [inputValue, inputErrors, isValid, handleInputChange, setInputValue] =
+    useInputValues(account, signup);
 
-  let newUser = {
+  const userData = {
     name: inputValue.userName?.trim(),
     email: inputValue.userEmail?.trim(),
     password: inputValue.userPassword?.trim(),
   };
-
-  const [isLoading, status, formError, handleForm, setFormError] =
-    useSubmitForm(newUser, setInputValue, account, validateForm);
+  const [isLoading, formError, handleForm, setFormError] = useSubmitForm(
+    userData,
+    setInputValue,
+    account,
+    isValid,
+    type,
+    nextPage
+  );
 
   return (
     <section className={style.container}>
       {isLoading && <div>Loading...</div>}
-      {status && <div>Success 👍</div>}
       {formError && (
         <DisplayError
           name="readBtn"
@@ -51,7 +52,7 @@ export default function SignupRightSection() {
           data={formError}
         />
       )}
-      {!isLoading && !status && !formError && (
+      {!isLoading && !formError && (
         <div className={style.wrapper}>
           <h1 className={style.heading}>Create Account</h1>
 

@@ -7,44 +7,47 @@ import { CheckboxAgreement } from "../../UI/FormIcons";
 import { inputArray } from "./data";
 import { Logo } from "../../UI/FormIcons";
 
-import { useLoginDetails, useInputValues } from "../../hooks/formhooks";
+import { useInputValues, useSubmitForm } from "../../hooks/formhooks";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import DisplayError from "../../UI/DisplayError";
-
-import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../hooks/AuthContext";
 
 export default function LoginLeftSection() {
   const [isChecked, setIsChecked] = useState(false);
+  const signup = false;
+  const type = "login";
+  const nextPage = "/user-dashboard";
 
   const account = {
     userEmail: "",
     userPassword: "",
     checkbox: isChecked,
   };
-  const signup = false;
+  const { dispatch } = useAuth();
 
-  const [
-    inputValue,
-    inputErrors,
-    validateForm,
-    handleInputChange,
-    setInputValue,
-  ] = useInputValues(account, signup);
+  const [inputValue, inputErrors, isValid, handleInputChange, setInputValue] =
+    useInputValues(account, signup);
 
-  const newUser = {
+  const userData = {
     email: inputValue.userEmail?.trim(),
     password: inputValue.userPassword?.trim(),
+    loggedIn: inputValue.checkbox,
   };
-  const url = "/login";
 
-  const [isLoading, formError, handleForm, setFormError] = useLoginDetails(
-    newUser,
+  const [isLoading, formError, handleForm, setFormError] = useSubmitForm(
+    userData,
     setInputValue,
     account,
-    validateForm,
-    url
+    isValid,
+    type,
+    nextPage
   );
+
+  // async function getStoredAccounts() {
+  //   const storedItems = localStorage.getItem("accounts");
+  //   return storedItems ? JSON.parse(storedItems) : [];
+  // }
 
   return (
     <section className={style.container}>
@@ -87,7 +90,7 @@ export default function LoginLeftSection() {
                   handleData={handleInputChange}
                   signup={false}
                   errors={inputErrors}
-                  inputValue={inputValue}
+                  value={inputValue.checkbox}
                 />
               </div>
             </AccountForm>

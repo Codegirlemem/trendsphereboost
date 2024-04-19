@@ -1,0 +1,143 @@
+{
+  "accounts": [
+    {
+      "id": "ea7q",
+      "name": "emem123",
+      "email": "emem@gmail.com",
+      "password": "123456",
+      "image": "user-img.svg"
+    },
+    {
+      "id": "ad97",
+      "name": "fabian roles",
+      "email": "fabian@gmail.com",
+      "password": "fabian"
+    },
+    {
+      "id": "6dkw",
+      "name": "ememem",
+      "email": "emem@yahoo.com",
+      "password": "456456"
+    },
+    {
+      "id": "2kd8",
+      "name": "Mark Osun",
+      "email": "mark56@gmail.com",
+      "password": "markosun"
+    },
+    {
+      "id": "2dwc",
+      "name": "Benita Adams",
+      "email": "benita2@yahoo.co.uk",
+      "password": "beniflme"
+    },
+    {
+      "id": "swf4",
+      "name": "Carey Temi",
+      "email": "temilola@gmail.com",
+      "password": "temi4lyf"
+    },
+    {
+      "id": "3jn3",
+      "name": "Michael Atagame",
+      "email": "atagameM@gmail.com",
+      "password": "atamichael"
+    },
+    {
+      "id": "wnw1",
+      "name": "Valeria Adam",
+      "email": "Valeriadam@yahoo.com",
+      "password": "valeria"
+    },
+    {
+      "id": "133w",
+      "name": "Atinuke",
+      "email": "atinuke@gmail.com",
+      "password": "atinuke"
+    },
+    {
+      "id": "da2c",
+      "name": "Gladys",
+      "email": "gladys@gmail.com",
+      "password": "gladys"
+    },
+    {
+      "id": "76fd",
+      "name": "Jeremy Sunday",
+      "email": "jeremy23@yahoo.com",
+      "password": "jerm765"
+    },
+    {
+      "id": "417c",
+      "name": "Mary Adebanjo",
+      "email": "adebanjo@gmail.com",
+      "password": "adebanjo"
+    },
+    {
+      "id": "0fca",
+      "name": "emily35",
+      "email": "emily@gmail.com",
+      "password": "emily35"
+    },
+    {
+      "id": "5258",
+      "name": "Belinda",
+      "email": "belinds@yahoo.com",
+      "password": "belinda"
+    },
+    {
+      "id": "15d5",
+      "name": "Barimade",
+      "email": "barimade@gmail.com",
+      "password": "barimade"
+    },
+    {
+      "id": "2362",
+      "name": "Barimade",
+      "email": "barimades@gmail.com",
+      "password": "barimade"
+    },
+    {
+      "id": "6f85",
+      "name": "Barimadess",
+      "email": "barimadess@gmail.com",
+      "password": "barimade"
+    },
+    {
+      "id": "b71b",
+      "name": "ezekiel",
+      "email": "ezekiel@yahoo.com",
+      "password": "ezekiel"
+    },
+    {
+      "id": "7ed9",
+      "name": "ezekiels",
+      "email": "ezekiels@gmail.com",
+      "password": "123456"
+    },
+    {
+      "id": "dac9",
+      "name": "beliebe",
+      "email": "believ@gmail.com",
+      "password": "123456"
+    },
+    {
+      "id": "541a",
+      "name": "Biodun",
+      "email": "biodun@yahoo.com",
+      "password": "biodun"
+    },
+    {
+      "id": "52c9",
+      "name": "bukumi",
+      "email": "buky@gmail.com",
+      "password": "bukumi"
+    },
+    {
+      "id": "0871",
+      "name": "bukumi",
+      "email": "bubkusn@gmail.com",
+      "password": "123456"
+    }
+  ]
+}
