@@ -5,17 +5,18 @@ import SignupImage from '../assets/images/signup-img.svg';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { BsArrowLeft } from 'react-icons/bs';
+// import { useInputValues } from '../hooks/useInputValues';
+// import { validateInput } from '../hooks/validateInput';
+// import { useEffect, useState } from 'react';
 
 // CHECKBOX AND ITS AGREEMENT MESSAGE
 export function CheckboxAgreement(props) {
   const { onChecked, handleData, signup, errors, value } = props;
+  // const [invalidValues] = validateInput(value, signup);
+  // console.log(invalidValues);
+  // const [error, setError] = useState('');
 
-  // useEffect(function () {
-  //   function setChanges() {
-  //     handleData('checkbox', value);
-  //   }
-  //   setChanges();
-  // }, []);
+  // useEffect(function () {}, []);
 
   const handleCheckbox = (e) => {
     onChecked(!value);
