@@ -1,12 +1,12 @@
-import { useEffect, useReducer, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export function useLoginDetails(
   newUser,
   setInputValue,
   account,
   validateForm,
-  url
+  url,
 ) {
   const [isLoading, setIsLoading] = useState(false);
   const [formError, setFormError] = useState(false);
@@ -15,7 +15,7 @@ export function useLoginDetails(
   const navigate = useNavigate();
 
   function getStoredAccounts() {
-    const storedItems = localStorage.getItem("accounts");
+    const storedItems = localStorage.getItem('accounts');
 
     return storedItems ? JSON.parse(storedItems) : [];
   }
@@ -37,14 +37,14 @@ export function useLoginDetails(
         const user = accounts.find((acc) => acc.email === newUser.email);
         console.log(user);
         if (!user) {
-          setFormError("User does not exist.");
+          setFormError('User does not exist.');
         } else if (user) {
           if (newUser.password) {
             if (newUser.password === user.password) {
               console.log(`User found`);
               navigate(url);
             } else {
-              setFormError("Password is incorrect");
+              setFormError('Password is incorrect');
             }
           } else {
             navigate(url);
@@ -61,7 +61,7 @@ export function useLoginDetails(
       }
     } else {
       setIsLoading(false);
-      setFormError("Ensure all input fields are filled or ticked");
+      setFormError('Ensure all input fields are filled or ticked');
     }
   }
   return [isLoading, formError, handleForm, setFormError];

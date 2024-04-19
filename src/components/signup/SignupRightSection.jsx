@@ -1,26 +1,26 @@
-import style from "./SignupRight.module.css";
-import AccountForm from "../AccountForm";
-import SignUpWith from "./SignUpWith";
-import { CheckboxAgreement } from "../../UI/FormIcons";
-import { CheckAccount } from "../../UI/LoginSignup";
-import DisplayError from "../../UI/DisplayError";
-import { inputArray } from "./data";
-import { useState } from "react";
+import style from './SignupRight.module.css';
+import AccountForm from '../AccountForm';
+import SignUpWith from './SignUpWith';
+import { CheckboxAgreement } from '../../UI/FormIcons';
+import { CheckAccount } from '../../UI/LoginSignup';
+import DisplayError from '../../UI/DisplayError';
+import { inputArray } from './data';
+import { useState } from 'react';
 
-import { useInputValues, useSubmitForm } from "../../hooks/formhooks";
+import { useInputValues, useSubmitForm } from '../../hooks/formhooks';
 
 export default function SignupRightSection() {
   const [isChecked, setIsChecked] = useState(true);
 
   const signup = true;
-  const type = "signup";
-  const nextPage = "/login";
+  const type = 'signup';
+  const nextPage = '/login';
 
   const account = {
-    userName: "",
-    userEmail: "",
-    userPassword: "",
-    confirmedPassword: "",
+    userName: '',
+    userEmail: '',
+    userPassword: '',
+    confirmedPassword: '',
     checkbox: isChecked,
   };
 
@@ -38,7 +38,7 @@ export default function SignupRightSection() {
     account,
     isValid,
     type,
-    nextPage
+    nextPage,
   );
 
   return (

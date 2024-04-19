@@ -1,14 +1,14 @@
-import style from "./style.module.css";
-import CustomButton from "../Button";
-import trendSphere from "../../../assets/LandingPage/icons/trendsphere-icon.svg";
-import { Link } from "react-router-dom";
+import style from './style.module.css';
+import CustomButton from '../Button';
+import trendSphere from '../../../assets/LandingPage/icons/trendsphere-icon.svg';
+import { Link } from 'react-router-dom';
 
 export const Header = () => {
   return (
     <header>
       <section className={style.header}>
         <div className={style.image}>
-          <img src={trendSphere} />
+          <img src={trendSphere} alt="logo" />
           <h2>
             Trendsphere
             <br /> Boost

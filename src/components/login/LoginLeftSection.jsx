@@ -1,30 +1,31 @@
-import "../../index.css";
-import style from "./LoginLeft.module.css";
-import AccountForm from "../AccountForm";
-import SignUpWith from "../signup/SignUpWith";
-import { CheckAccount, DividerText } from "../../UI/LoginSignup";
-import { CheckboxAgreement } from "../../UI/FormIcons";
-import { inputArray } from "./data";
-import { Logo } from "../../UI/FormIcons";
+import '../../index.css';
+import style from './LoginLeft.module.css';
+import AccountForm from '../AccountForm';
+import SignUpWith from '../signup/SignUpWith';
+import { CheckAccount, DividerText } from '../../UI/LoginSignup';
+import { CheckboxAgreement } from '../../UI/FormIcons';
+import { inputArray } from './data';
+import { Logo } from '../../UI/FormIcons';
 
-import { useInputValues, useSubmitForm } from "../../hooks/formhooks";
+import { useInputValues, useSubmitForm } from '../../hooks/formhooks';
 
-import { useEffect, useState } from "react";
-import DisplayError from "../../UI/DisplayError";
-import { useAuth } from "../../hooks/AuthContext";
+import { useState } from 'react';
+import DisplayError from '../../UI/DisplayError';
+import { useAuth } from '../../hooks/AuthContext';
 
 export default function LoginLeftSection() {
   const [isChecked, setIsChecked] = useState(false);
   const signup = false;
-  const type = "login";
-  const nextPage = "/user-dashboard";
+  const type = 'login';
+  const nextPage = '/user-dashboard';
 
   const account = {
-    userEmail: "",
-    userPassword: "",
+    userEmail: '',
+    userPassword: '',
     checkbox: isChecked,
   };
   const { dispatch } = useAuth();
+  console.log(dispatch);
 
   const [inputValue, inputErrors, isValid, handleInputChange, setInputValue] =
     useInputValues(account, signup);
@@ -41,7 +42,7 @@ export default function LoginLeftSection() {
     account,
     isValid,
     type,
-    nextPage
+    nextPage,
   );
 
   // async function getStoredAccounts() {

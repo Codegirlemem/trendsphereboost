@@ -1,12 +1,13 @@
-import CustomButton from "../Button";
-import style from "./style.module.css";
-import socialDashboard from "../../../assets/LandingPage/images/socialDashboard.svg";
+import CustomButton from '../Button';
+import style from './style.module.css';
+// import socialDashboard from "../../../assets/LandingPage/images/socialDashboard.svg";
+import socialDashboard from '../../../assets/LandingPage/images/social-dashboard-cuate 2.png';
 export const Hero = () => {
   return (
     <section>
       <div className={style.herosection}>
         <div>
-          <img src={socialDashboard} />
+          <img src={socialDashboard} alt="social dashboard" />
         </div>
         <div className={style.text}>
           <h1>About Us</h1>

@@ -1,7 +1,7 @@
 import { createContext, useContext, useReducer } from 'react';
-import { useAccounts } from './useFetchAccounts';
+// import { useAccounts } from './useFetchAccounts';
 
-const API_URL = 'http://localhost:9000/accounts';
+// const API_URL = 'http://localhost:9000/accounts';
 const AuthContext = createContext();
 
 const initialState = {
@@ -26,9 +26,9 @@ export function AuthProvider({ children }) {
     initialState,
   );
 
-  function login(email, password) {}
+  // function login(email, password) {}
 
-  function logout() {}
+  // function logout() {}
   return (
     <AuthContext.Provider value={{ loggedInUser, isAuthenticated, dispatch }}>
       {children}
