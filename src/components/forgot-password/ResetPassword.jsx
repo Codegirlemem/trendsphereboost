@@ -1,46 +1,44 @@
-import style from "./ResetPassword.module.css";
-import { Link, Outlet, useNavigate } from "react-router-dom";
-import { createContext, useEffect, useReducer, useState } from "react";
-import DisplayError from "../../UI/DisplayError";
+import style from './ResetPassword.module.css';
+import { Link, Outlet, useNavigate } from 'react-router-dom';
+import { createContext, useReducer } from 'react';
+import DisplayError from '../../UI/DisplayError';
 
-import UserInput from "../../UI/UserInput";
-import Button from "../../UI/Button";
-import { BackArrow } from "../../UI/FormIcons";
-import axios from "axios";
-import { useInputValues, useSubmitForm } from "../../hooks/formhooks";
-import Verification from "./Verification";
+import UserInput from '../../UI/UserInput';
+import Button from '../../UI/Button';
+import { BackArrow } from '../../UI/FormIcons';
+import { useInputValues } from '../../hooks/formhooks';
 
 const initialState = {
   account: {
-    userEmail: "",
+    userEmail: '',
   },
-  status: "enter email",
-  OTP_Code: "",
-  formError: "",
+  status: 'enter email',
+  OTP_Code: '',
+  formError: '',
   signup: false,
-  navigate: "",
+  navigate: '',
 };
 
 function reducer(state, action) {
   switch (action.type) {
-    case "loading":
-      return { ...state, status: "isLoading" };
+    case 'loading':
+      return { ...state, status: 'isLoading' };
 
-    case "sent/otp":
+    case 'sent/otp':
       return {
         ...state,
         OTP_Code: 51356,
         account: {
           userEmail: action.payload,
         },
-        status: "otp page",
+        status: 'otp page',
       };
-    case "form error":
-      return { ...state, status: "error", formError: action.payload };
-    case "back":
-      return { ...state, status: "enter email" };
+    case 'form error':
+      return { ...state, status: 'error', formError: action.payload };
+    case 'back':
+      return { ...state, status: 'enter email' };
     default:
-      throw new Error("error displaying");
+      throw new Error('error displaying');
   }
 }
 
@@ -61,21 +59,21 @@ export default function ResetPassword() {
   function handleForm(e) {
     e.preventDefault();
     if (isValid) {
-      if (state.status === "enter email") {
+      if (state.status === 'enter email') {
         dispatch({
-          type: "sent/otp",
+          type: 'sent/otp',
           payload: userData.email,
         });
-        setInputValue("");
-        navigate("/reset-password/verification");
+        setInputValue('');
+        navigate('/reset-password/verification');
       }
     } else {
-      dispatch({ type: "form error", payload: "Invalid email" });
+      dispatch({ type: 'form error', payload: 'Invalid email' });
     }
   }
 
   function setFormError(bool) {
-    dispatch({ type: "back" });
+    dispatch({ type: 'back' });
   }
 
   // const [isLoading, formError, handleForm, setFormError] = useSubmitForm(
@@ -89,11 +87,11 @@ export default function ResetPassword() {
 
   return (
     <PasswordContext.Provider value={{ ...state, dispatch }}>
-      {state.status === "otp page" && <Outlet />}
+      {state.status === 'otp page' && <Outlet />}
       <main className={style.container}>
-        {state.status === "loading" && <div>Loading....</div>}
+        {state.status === 'loading' && <div>Loading....</div>}
 
-        {state.status === "error" && (
+        {state.status === 'error' && (
           <DisplayError
             name="readBtn"
             btnType="Back"
@@ -102,9 +100,8 @@ export default function ResetPassword() {
           />
         )}
 
-        {state.status === "enter email" && (
+        {state.status === 'enter email' && (
           <div>
-            {/* <Verification /> */}
             <Link to="/login" className={style.goBack}>
               <BackArrow />
             </Link>

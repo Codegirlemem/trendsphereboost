@@ -4,7 +4,6 @@ import './App.css';
 import SignUp from './pages/SignUp';
 import Login from './pages/Login';
 import ResetPassword from './components/forgot-password/ResetPassword';
-import Verification from './components/forgot-password/Verification';
 import NewPassword from './components/forgot-password/NewPassword';
 import LandingPage from './pages/LandingPage';
 import Dashboard from './pages/Dashboard';
