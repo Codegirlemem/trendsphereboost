@@ -14,7 +14,7 @@ export function useInputValues(account, signup) {
   validateInput(inputValue, signup);
   const [isValid, invalidValues] = validateInput(inputValue, signup);
 
-  console.log(invalidValues, setinputErrors);
+  // console.log(invalidValues, setinputErrors);
   // useEffect(function () {}, [inputValue]);
   return [inputValue, inputErrors, isValid, handleInputChange, setInputValue];
 }
