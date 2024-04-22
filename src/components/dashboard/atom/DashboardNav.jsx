@@ -6,7 +6,15 @@ function DashboardNav() {
     <>
       {iconArray.map((arr) => {
         return (
-          <NavLink to={arr.id} className="flexgap" key={arr.id}>
+          <NavLink
+            to={arr.id}
+            className={({ isActive }) => {
+              return isActive
+                ? 'flexgap rounded bg-orange px-4 py-2 transition duration-500'
+                : 'flexgap';
+            }}
+            key={arr.id}
+          >
             <div>
               <img src={arr.icon} alt={arr.title} />
             </div>

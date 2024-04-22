@@ -5,7 +5,7 @@
   padding: 0 var(--app-block-padding);
   margin: 20px 70px;
 }
-h2 {
+.heading {
   color: #ff5733;
   font-size: 15px;
 }
@@ -13,7 +13,7 @@ h2 {
   display: flex;
   gap: 15px;
 }
-ul {
+.lists {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -21,7 +21,7 @@ ul {
   gap: 60px;
 }
 
-ul li a {
+.lists li a {
   text-decoration: none;
   color: black;
 }

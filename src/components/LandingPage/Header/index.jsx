@@ -9,13 +9,13 @@ export const Header = () => {
       <section className={style.header}>
         <div className={style.image}>
           <img src={trendSphere} alt="logo" />
-          <h2>
+          <h2 className={style.heading}>
             Trendsphere
             <br /> Boost
           </h2>
         </div>
         <div className={style.menu}>
-          <ul>
+          <ul className={style.lists}>
             <li className={style.home}>
               <a href="#/home">Home</a>
             </li>

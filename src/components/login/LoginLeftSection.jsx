@@ -15,6 +15,7 @@ import { useAuth } from '../../hooks/AuthContext';
 
 export default function LoginLeftSection() {
   const [isChecked, setIsChecked] = useState(false);
+  const { state, login, dispatch } = useAuth();
   const signup = false;
   const type = 'login';
   const nextPage = '/user-dashboard';
@@ -24,8 +25,6 @@ export default function LoginLeftSection() {
     userPassword: '',
     checkbox: isChecked,
   };
-  const { dispatch } = useAuth();
-  console.log(dispatch);
 
   const [inputValue, inputErrors, isValid, handleInputChange, setInputValue] =
     useInputValues(account, signup);
@@ -43,12 +42,12 @@ export default function LoginLeftSection() {
     isValid,
     type,
     nextPage,
+    login,
   );
 
-  // async function getStoredAccounts() {
-  //   const storedItems = localStorage.getItem("accounts");
-  //   return storedItems ? JSON.parse(storedItems) : [];
-  // }
+  function resetError() {
+    dispatch({ type: 'logout' });
+  }
 
   return (
     <section className={style.container}>
@@ -61,7 +60,15 @@ export default function LoginLeftSection() {
           data={formError}
         />
       )}
-      {!isLoading && !formError && (
+      {state.loginError && (
+        <DisplayError
+          name="readBtn"
+          btnType="Back"
+          setError={resetError}
+          data={state.loginError}
+        />
+      )}
+      {!isLoading && !formError && !state.loginError && (
         <div className={style.wrapper}>
           <div className={style.header}>
             <Logo logo="blue" className={style.logo} />
@@ -82,7 +89,7 @@ export default function LoginLeftSection() {
               btnType="Login"
               inputValue={inputValue}
               submitForm={handleForm}
-              handleData={handleInputChange}
+              handleChange={handleInputChange}
               errors={inputErrors}
             >
               <div className={style.checkbox}>

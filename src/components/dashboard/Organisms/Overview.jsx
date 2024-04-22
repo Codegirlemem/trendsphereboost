@@ -1,9 +1,13 @@
+import ActivityFeed from '../molecules/ActivityFeed';
+import DashboardStat from '../molecules/DashboardStat';
+
 function Overview() {
-    return (
-        <div>
-            dashboard overview
-        </div>
-    )
+  return (
+    <>
+      <DashboardStat />
+      <ActivityFeed />
+    </>
+  );
 }
 
-export default Overview
+export default Overview;

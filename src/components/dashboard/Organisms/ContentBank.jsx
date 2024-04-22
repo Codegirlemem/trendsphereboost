@@ -1,5 +1,11 @@
+import SavedIdeas from './SavedIdeas';
+
 function ContentBank() {
-  return <div>content bank</div>;
+  return (
+    <div className="ml-6 mt-16">
+      <SavedIdeas />
+    </div>
+  );
 }
 
 export default ContentBank;

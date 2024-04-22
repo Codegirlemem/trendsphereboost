@@ -1,40 +1,79 @@
 import { createContext, useContext, useReducer } from 'react';
-// import { useAccounts } from './useFetchAccounts';
+import { useNavigate } from 'react-router-dom';
 
-// const API_URL = 'http://localhost:9000/accounts';
+import { useFetchAccounts } from './useFetchAccounts';
+
 const AuthContext = createContext();
 
 const initialState = {
   loggedInUser: null,
+  loginError: null,
   isAuthenticated: false,
 };
 
 function reducer(state, action) {
   switch (action.type) {
-    case 'login':
+    case 'logged in':
       return { ...state, loggedInUser: action.payload, isAuthenticated: true };
     case 'logout':
-      return { ...state, loggedInUser: null, isAuthenticated: false };
+      return {
+        ...state,
+        loggedInUser: null,
+        loginError: null,
+        isAuthenticated: false,
+      };
+    case 'unknown user':
+      return { ...state, loginError: action.payload };
+    case 'password incorrect':
+      return { ...state, loginError: action.payload };
+    case 'data error':
+      return { ...state, loginError: action.payload };
     default:
       throw new Error('Action is unknown');
   }
 }
 
 export function AuthProvider({ children }) {
-  const [{ loggedInUser, isAuthenticated }, dispatch] = useReducer(
-    reducer,
-    initialState,
-  );
+  const [data, error] = useFetchAccounts('http://localhost:9000/accounts');
+  const navigate = useNavigate();
 
-  // function login(email, password) {}
+  const [state, dispatch] = useReducer(reducer, initialState);
 
-  // function logout() {}
+  function login(email, password) {
+    try {
+      const user = data.find((acc) => acc.email === email);
+      if (!user) {
+        dispatch({ type: 'unknown user', payload: 'Email is incorrect' });
+      } else if (user) {
+        if (user.password === password) {
+          dispatch({ type: 'logged in', payload: { user } });
+
+          navigate('/user-dashboard/overview');
+        } else {
+          dispatch({
+            type: 'password incorrect',
+            payload: 'Password is incorrect',
+          });
+        }
+      }
+    } catch (err) {
+      console.log(err);
+      dispatch({
+        type: 'data error',
+        payload: `Could not fetch data ${error}`,
+      });
+    }
+  }
+  function logout() {
+    dispatch({ type: 'logout' });
+  }
   return (
-    <AuthContext.Provider value={{ loggedInUser, isAuthenticated, dispatch }}>
+    <AuthContext.Provider value={{ state, dispatch, login, logout }}>
       {children}
     </AuthContext.Provider>
   );
 }
+
 export function useAuth() {
   const context = useContext(AuthContext);
   if (context === undefined)

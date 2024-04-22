@@ -8,9 +8,12 @@ import { inputArray } from './data';
 import { useState } from 'react';
 
 import { useInputValues, useSubmitForm } from '../../hooks/formhooks';
+import { useAuth } from '../../hooks/AuthContext';
 
 export default function SignupRightSection() {
   const [isChecked, setIsChecked] = useState(true);
+  const { login } = useAuth();
+  // console.log(login);
 
   const signup = true;
   const type = 'signup';
@@ -26,12 +29,11 @@ export default function SignupRightSection() {
 
   const [inputValue, inputErrors, isValid, handleInputChange, setInputValue] =
     useInputValues(account, signup);
-  console.log(handleInputChange);
 
   const userData = {
-    name: inputValue.userName?.trim(),
-    email: inputValue.userEmail?.trim(),
-    password: inputValue.userPassword?.trim(),
+    name: inputValue.userName?.trim()?.toLowerCase(),
+    email: inputValue.userEmail?.trim()?.toLowerCase(),
+    password: inputValue.userPassword?.trim()?.toLowerCase(),
   };
   const [isLoading, formError, handleForm, setFormError] = useSubmitForm(
     userData,
@@ -40,6 +42,7 @@ export default function SignupRightSection() {
     isValid,
     type,
     nextPage,
+    login,
   );
 
   return (
@@ -64,7 +67,7 @@ export default function SignupRightSection() {
               btnType="Sign Up"
               inputValue={inputValue}
               submitForm={handleForm}
-              handleData={handleInputChange}
+              handleChange={handleInputChange}
               errors={inputErrors}
             >
               <div className={style.checkbox}>

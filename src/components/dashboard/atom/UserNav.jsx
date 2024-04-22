@@ -1,11 +1,18 @@
 import { NavLink } from 'react-router-dom';
-import Avatar from '../../../assets/avatars/user-img.svg';
 import Mail from '../../../assets/dashboard/mail.svg';
 import Notification from '../../../assets/dashboard/notification.svg';
+import UserImage from './UserImage';
+import { useAuth } from '../../../hooks/AuthContext';
 
 function UserNav() {
+  const {
+    state: { loggedInUser },
+  } = useAuth();
+  const { name } = loggedInUser ? loggedInUser.user : '';
+  // console.log(name);
+
   return (
-    <ul className="flex  w-2/5 text-darklue">
+    <ul className="flex w-2/5 gap-3 text-darklue xl:justify-between">
       <li>
         <NavLink to="/trendsphereboost">
           <img src={Notification} alt="notification icon" />
@@ -18,11 +25,11 @@ function UserNav() {
       </li>
       <li className="flex items-center gap-2">
         <div className="flex flex-col justify-center font-inter">
-          <span className="text-lg">Jae Edike</span>{' '}
+          <span className="hidden text-sm md:block xl:text-lg">{name}</span>{' '}
           <span className="text-sm">Admin</span>
         </div>
         <NavLink>
-          <img src={Avatar} alt="User avatar" />
+          <UserImage />
         </NavLink>
       </li>
     </ul>

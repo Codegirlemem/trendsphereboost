@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom';
 import { Logo } from '../../../UI/FormIcons';
 import DashboardSites from '../atom/DashboardNav';
+import Logout from '../atom/Logout';
 
 function SideNav() {
   return (
-    <div className="row-span-2 flex flex-col justify-between bg-darklue px-[35px] py-[47px] text-white">
+    <div className="row-span-full flex flex-col justify-between bg-darklue px-[35px] py-[47px] text-white">
       <div className="flex flex-col gap-[56px]">
         <Link to="/trendsphereboost" className="">
           <Logo logo="orange" />
@@ -14,7 +15,7 @@ function SideNav() {
           <DashboardSites />
         </div>
       </div>
-      <div>Logout</div>
+      <Logout />
     </div>
   );
 }

@@ -1,7 +1,7 @@
-import { FormInputs } from "./LoopedItems";
-import style from "./AccountForm.module.css";
+import { FormInputs } from './LoopedItems';
+import style from './AccountForm.module.css';
 
-import Button from "../UI/Button";
+import Button from '../UI/Button';
 
 export default function AccountForm(props) {
   const {
@@ -9,21 +9,20 @@ export default function AccountForm(props) {
     btnType,
     inputValue,
     submitForm,
-    handleData,
+    handleChange,
     errors,
     children,
   } = props;
   // console.log(handleData);
 
-  // console.log(handleCheckbox);
   return (
     <>
-      <form onSubmit={submitForm} className={style.form} action="">
+      <form onSubmit={submitForm} className={style.form}>
         <FormInputs
           inputDetails={inputDetails}
           btnType={btnType}
           inputValue={inputValue}
-          handleChange={handleData}
+          handleChange={handleChange}
           errors={errors}
         />
 

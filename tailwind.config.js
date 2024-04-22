@@ -14,7 +14,7 @@ module.exports = {
       },
       fontFamily: {
         exo: 'Exo, san-serif',
-        inter: 'Inter, sans-serif',
+        inter: 'Inter',
         montserrat: 'Montserrat, san-serif',
         roboto: 'Roboto, san-serif',
       },
@@ -23,6 +23,14 @@ module.exports = {
       },
       gridTemplateColumns: {
         dashboard: '250px 1fr',
+      },
+      placeholderColor: {
+        primary: '#CFC8C8',
+      },
+      screens: {
+        smLaptop: '900px',
+        laptop: '1440px',
+        // => @media (min-width: 900px) { ... }
       },
     },
   },
