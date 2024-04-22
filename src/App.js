@@ -19,9 +19,8 @@ function App() {
         <Route path="/trendsphereboost" element={<LandingPage />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/reset-password" element={<ResetPassword />}>
-          DashboardSites
-        </Route>
+        <Route path="/reset-password" element={<ResetPassword />} />
+     
         <Route path="/new-password" element={<NewPassword />} />
         <Route
           path="/user-dashboard"
