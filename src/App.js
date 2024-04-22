@@ -30,7 +30,7 @@ function App() {
             //   <Dashboard />
             // </ProtectedRoutes>
           }
-        >
+       />
           <Route index element={<Overview />} />
           <Route path="overview" element={<Overview />} />
           <Route path="content-bank" element={<ContentBank />} />
