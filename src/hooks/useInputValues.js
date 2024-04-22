@@ -14,12 +14,15 @@ export function useInputValues(account, signup) {
   // setinputErrors({ ...invalidValues });
   // validateInput(inputValue, signup);
 
-  const [isValid, invalidValues] = validateInput(inputValue, signup);
-  useEffect(
-    function () {
-      setinputErrors({ ...invalidValues });
-    },
-    [inputValue],
-  );
+  // const [isValid, invalidValues] = validateInput(inputValue, signup);
+  // useEffect(
+  //   function () {
+  //     setinputErrors({ ...invalidValues });
+  //   },
+  //   [inputValue, ],
+  // );
+
+    const [isValid, invalidValues] = validateInput(inputValue, signup);
+   setinputErrors({ ...invalidValues });
   return [inputValue, isValid, inputErrors, handleInputChange, setInputValue];
 }
