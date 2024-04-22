@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { validateInput } from './validateInput';
 
 export function useInputValues(account, signup) {
