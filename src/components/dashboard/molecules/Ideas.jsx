@@ -1,6 +1,7 @@
 import NavButton from '../atom/NavButton';
 
 function Ideas({ idea }) {
+  console.log(idea);
   return (
     <article className="w-[269px] ">
       <figure className="h-[184px] w-full bg-orange">figure</figure>

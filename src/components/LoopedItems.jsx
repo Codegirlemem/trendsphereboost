@@ -8,14 +8,12 @@ import Twitter from '../assets/icons/twitter.svg';
 import Linkedin from '../assets/icons/linkedin.svg';
 
 export function FormInputs(props) {
-  const { signup, inputDetails, inputValue, handleChange, errors } = props;
-  // const { signup, inputDetails, inputValue, handleChange, errors } = props;
+  const { inputDetails, inputValue, handleChange, errors } = props;
 
   return inputDetails.map((detail, index) => {
     return (
       <UserInput
         key={`user_${detail.type}${index}`}
-        signup={signup}
         data={detail}
         value={inputValue[detail.name]}
         errors={errors}

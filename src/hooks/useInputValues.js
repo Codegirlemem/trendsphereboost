@@ -10,19 +10,14 @@ export function useInputValues(account, signup) {
   function handleInputChange(name, value) {
     setInputValue({ ...inputValue, [name]: value });
   }
-  // const [isValid, invalidValues] = validateInput(inputValue, signup);
-  // setinputErrors({ ...invalidValues });
-  // validateInput(inputValue, signup);
 
-  // const [isValid, invalidValues] = validateInput(inputValue, signup);
-  // useEffect(
-  //   function () {
-  //     setinputErrors({ ...invalidValues });
-  //   },
-  //   [inputValue, ],
-  // );
-
-    const [isValid, invalidValues] = validateInput(inputValue, signup);
-   setinputErrors({ ...invalidValues });
-  return [inputValue, isValid, inputErrors, handleInputChange, setInputValue];
+  validateInput(inputValue, signup);
+  const [isValid, invalidValues] = validateInput(inputValue, signup);
+  useEffect(
+    function () {
+      setinputErrors({ ...invalidValues });
+    },
+    [inputValue, invalidValues],
+  );
+  return [inputValue, inputErrors, isValid, handleInputChange, setInputValue];
 }
