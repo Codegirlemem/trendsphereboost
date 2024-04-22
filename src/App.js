@@ -16,21 +16,14 @@ function App() {
   return (
     <AuthProvider>
       <Routes>
-        <Route index path="/" element={<LandingPage />} />
+     <Route index element={<LandingPage />} />
+        <Route path="/" element={<LandingPage />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
         <Route path="/reset-password" element={<ResetPassword />} />
      
         <Route path="/new-password" element={<NewPassword />} />
-        <Route
-          path="/user-dashboard"
-          element={
-            <Dashboard />
-            // <ProtectedRoutes>
-            //   <Dashboard />
-            // </ProtectedRoutes>
-          }
-       />
+        <Route path="/user-dashboard" element={<Dashboard />}>
           <Route index element={<Overview />} />
           <Route path="overview" element={<Overview />} />
           <Route path="content-bank" element={<ContentBank />} />
