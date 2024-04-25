@@ -9,14 +9,17 @@ export function useInputValues(account, signup) {
 
   function handleInputChange(name, value) {
     setInputValue({ ...inputValue, [name]: value });
+    validateInput(inputValue, signup, setinputErrors);
   }
 
-  validateInput(inputValue, signup);
-  const [isValid, invalidValues] = validateInput(inputValue, signup);
-
-  console.log(setinputErrors, invalidValues);
-
+  const inputData = {
+    inputValue,
+    inputErrors,
+    handleInputChange,
+    setInputValue,
+    setinputErrors,
+  };
   // console.log(invalidValues, setinputErrors);
   // useEffect(function () {}, [inputValue]);
-  return [inputValue, inputErrors, isValid, handleInputChange, setInputValue];
+  return inputData;
 }

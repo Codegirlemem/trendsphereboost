@@ -6,3 +6,8 @@
   margin-top: 80px;
   margin-top: 50px;
 }
+@media only screen and (max-width: 1024px) {
+  .flex {
+    gap: 20px;
+  }
+}

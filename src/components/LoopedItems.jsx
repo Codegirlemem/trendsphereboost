@@ -7,19 +7,9 @@ import Instagram from '../assets/icons/instagram.svg';
 import Twitter from '../assets/icons/twitter.svg';
 import Linkedin from '../assets/icons/linkedin.svg';
 
-export function FormInputs(props) {
-  const { inputDetails, inputValue, handleChange, errors } = props;
-
+export function FormInputs({ inputDetails }) {
   return inputDetails.map((detail, index) => {
-    return (
-      <UserInput
-        key={`user_${detail.type}${index}`}
-        data={detail}
-        value={inputValue[detail.name]}
-        errors={errors}
-        handleChange={handleChange}
-      />
-    );
+    return <UserInput key={`user_${detail.type}${index}`} data={detail} />;
   });
 }
 

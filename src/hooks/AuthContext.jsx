@@ -1,8 +1,6 @@
 import { createContext, useContext, useReducer } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { useFetchAccounts } from './useFetchAccounts';
-
 const AuthContext = createContext();
 
 const initialState = {
@@ -15,6 +13,7 @@ function reducer(state, action) {
   switch (action.type) {
     case 'logged in':
       return { ...state, loggedInUser: action.payload, isAuthenticated: true };
+
     case 'logout':
       return {
         ...state,
@@ -34,39 +33,39 @@ function reducer(state, action) {
 }
 
 export function AuthProvider({ children }) {
-  const [data, error] = useFetchAccounts('http://localhost:9000/accounts');
+  // const [data, error] = useFetchAccounts('http://localhost:9000/accounts');
   const navigate = useNavigate();
 
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  function login(email, password) {
-    try {
-      const user = data.find((acc) => acc.email === email);
-      if (!user) {
-        dispatch({ type: 'unknown user', payload: 'Email is incorrect' });
-      } else if (user) {
-        if (user.password === password) {
-          dispatch({ type: 'logged in', payload: { user } });
-
-          navigate('/user-dashboard/overview');
-        } else {
-          dispatch({
-            type: 'password incorrect',
-            payload: 'Password is incorrect',
-          });
-        }
-      }
-    } catch (err) {
-      console.log(err);
+  function login(email, password, user, setLoading, setError) {
+    if (user.password === password) {
+      dispatch({ type: 'logged in', payload: { user } });
+      setLoading(false);
+      navigate('/user-dashboard/overview');
+    } else {
       dispatch({
-        type: 'data error',
-        payload: `Could not fetch data ${error}`,
+        type: 'password incorrect',
+        payload: 'Password is incorrect',
       });
+      setError('Password is incorrect');
+      setLoading(false);
     }
   }
   function logout() {
     dispatch({ type: 'logout' });
   }
+  // function signup(data, err) {
+  //   try {
+  //     return [data, err];
+  //   } catch (err) {
+  //     return `Error: Could not find user. ${err}`;
+  //   }
+  // }
+
+  // function stayLoggedIn() {
+  //   dispatch({ type: 'keep/logged/in', payload: true });
+  // }
   return (
     <AuthContext.Provider value={{ state, dispatch, login, logout }}>
       {children}

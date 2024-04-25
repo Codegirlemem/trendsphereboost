@@ -1,6 +1,8 @@
-import styled from "styled-components";
-import LoginLeftSection from "../components/login/LoginLeftSection";
-import LoginRightSection from "../components/login/LoginRightSection";
+import styled from 'styled-components';
+import LoginLeftSection from '../components/login/LoginLeftSection';
+import LoginRightSection from '../components/login/LoginRightSection';
+import StateProvider from './StateProvider';
+import { useState } from 'react';
 
 const Main = styled.main`
   background-color: #002f5f;
@@ -14,12 +16,21 @@ const Main = styled.main`
 `;
 
 export default function Login() {
+  const [isChecked, setIsChecked] = useState(false);
+  const signup = false;
+  const account = {
+    userEmail: '',
+    userPassword: '',
+    checkbox: isChecked,
+  };
+
   return (
     <div className="App">
       <Main>
-        <LoginLeftSection />
-
-        <LoginRightSection />
+        <StateProvider account={account} signup={signup}>
+          <LoginLeftSection value={isChecked} checked={setIsChecked} />
+          <LoginRightSection />
+        </StateProvider>
       </Main>
     </div>
   );

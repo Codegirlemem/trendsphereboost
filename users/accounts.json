@@ -138,6 +138,56 @@
       "name": "bukumi",
       "email": "bubkusn@gmail.com",
       "password": "123456"
+    },
+    {
+      "id": "0929",
+      "name": "jude oscar",
+      "email": "judeoscar@gmail.com",
+      "password": "judeoscar"
+    },
+    {
+      "id": "3e5d",
+      "name": "emeka",
+      "email": "emeka@gmail.com",
+      "password": "123456"
+    },
+    {
+      "id": "2056",
+      "name": "ememajasj",
+      "email": "ememm@gmail.com",
+      "password": "123456"
+    },
+    {
+      "id": "4c90",
+      "name": "emem123",
+      "email": "emem@gmail.com",
+      "password": "123456"
+    },
+    {
+      "id": "c8ed",
+      "name": "emem@gmail.com",
+      "email": "emem@gmail.com",
+      "password": "123456"
+    },
+    {
+      "id": "7266",
+      "nextPage": "/login",
+      "userData": {
+        "name": "emem123",
+        "email": "ememkj@gmail.com",
+        "password": "123456"
+      },
+      "type": "signup"
+    },
+    {
+      "id": "d0fc",
+      "nextPage": "/login",
+      "userData": {
+        "name": "emem123",
+        "email": "ememss@gmail.com",
+        "password": "123456"
+      },
+      "type": "signup"
     }
   ]
 }

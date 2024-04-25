@@ -5,7 +5,7 @@ import socialLinks from '../../../assets/LandingPage/icons/socialLinks.svg';
 export const Footer = () => {
   return (
     <section className={style.footer}>
-      <div className={style.img}>
+      <div className={style.imgsphere}>
         <div className={style.image}>
           <img src={trendSphere} alt="logo" />
           <h2>

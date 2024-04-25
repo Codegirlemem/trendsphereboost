@@ -1,85 +1,94 @@
-.header {
+.navbar2 {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 var(--app-block-padding);
   margin: 20px 70px;
 }
-.heading {
-  color: #ff5733;
-  font-size: 15px;
-}
-.image {
+.logoimage {
   display: flex;
   gap: 15px;
 }
-.lists {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  list-style: none;
-  gap: 60px;
-}
-
-.lists li a {
-  text-decoration: none;
-  color: black;
-}
-.home a {
+.home {
   color: #ff5733;
   text-decoration: underline;
 }
-.boost {
-  font-family: Exo;
-  color: #002f5f;
+.menuToggle {
+  display: none;
+  cursor: pointer;
+  background: none;
+  padding: 10px;
+}
+.menuToggle:hover {
+  background-color: #eee;
+}
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: black;
+  margin: 5px 0;
+}
+.navList {
+  list-style: none;
+  display: flex;
+}
+.navList li {
+  margin-left: 80px;
+}
+/* .navList li:hover {
+  background-color: #eee;
+} */
+.navList li a {
+  text-decoration: none;
+}
+.signupButton {
+  background-color: #ff5733;
+  color: white;
+  padding: 8px 17px;
+  /* border: 1px solid white; */
+  cursor: pointer;
+  border-radius: 8px;
   text-align: center;
-  font-family: Exo;
-  font-size: 72px;
-  font-style: normal;
+  width: 112px;
+  margin-right: 20px;
+}
+/* .signupButton:hover {
+  background-color: #eee;
+} */
+.trends {
+  color: #ff5733;
+  font-size: 15px;
   font-weight: 600;
 }
-.paragraph {
-  color: #4b4b4b;
-  text-align: center;
-  font-family: Montserrat;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 160%;
-}
-.menu {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
 
-.boost {
-  text-align: center;
-  font-size: 50px;
-  font-weight: bold;
-}
-.section2 {
-  text-align: center;
-}
-.span1 {
-  color: #ff5733;
-}
-.button {
-  gap: 50px;
-  margin-top: 80px;
-}
-.btn {
-  display: flex;
-  padding: 16px 24px;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-}
-.socials {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+@media only screen and (max-width: 900px) {
+  .menuToggle {
+    display: block;
+  }
+  .navList {
+    display: none;
+    flex-direction: column;
+    background-color: #eee;
+    position: fixed;
+    top: 15%;
+    right: 0;
+    width: 100%;
+    gap: 1rem;
+    transition: 1s;
+    height: 100%;
+  }
+  .navList.open {
+    display: flex;
+  }
+  .navList li {
+    margin: 0;
+    text-align: center;
+  }
 
-  margin-left: 250px;
-  margin-top: 40px;
+  .navList li a:hover {
+    margin: 0;
+    text-align: center;
+    background-color: #fff;
+    border: none;
+  }
 }

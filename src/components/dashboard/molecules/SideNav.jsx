@@ -7,7 +7,7 @@ function SideNav() {
   return (
     <div className="row-span-full flex flex-col justify-between bg-darklue px-[35px] py-[47px] text-white">
       <div className="flex flex-col gap-[56px]">
-        <Link to="/trendsphereboost" className="">
+        <Link to="/" className="">
           <Logo logo="orange" />
         </Link>
 

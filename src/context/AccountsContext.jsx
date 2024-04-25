@@ -31,6 +31,6 @@ export function useAccounts() {
     throw new Error(
       'Accounts context was used outside of its AccountsProvider',
     );
-    return context;
   }
+  return context;
 }

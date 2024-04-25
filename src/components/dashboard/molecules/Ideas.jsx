@@ -1,15 +1,11 @@
-import NavButton from '../atom/NavButton';
+import IdeaBackbround from '../content-bank/IdeaBackbround';
+import IdeaActions from '../content-bank/atom/IdeaActions';
 
 function Ideas({ idea }) {
-  console.log(idea);
   return (
     <article className="w-[269px] ">
-      <figure className="h-[184px] w-full bg-orange">figure</figure>
-      <div className="bg-lightblue px-2">
-        <div className="p-2">
-          <NavButton>+ Add Note</NavButton>
-        </div>
-      </div>
+      <IdeaBackbround idea={idea} />
+      <IdeaActions />
     </article>
   );
 }

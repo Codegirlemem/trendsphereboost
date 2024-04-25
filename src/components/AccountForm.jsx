@@ -4,27 +4,13 @@ import style from './AccountForm.module.css';
 import Button from '../UI/Button';
 
 export default function AccountForm(props) {
-  const {
-    inputDetails,
-    btnType,
-    inputValue,
-    submitForm,
-    handleChange,
-    errors,
-    children,
-  } = props;
+  const { inputDetails, btnType, submitForm, children } = props;
   // console.log(handleData);
 
   return (
     <>
       <form onSubmit={submitForm} className={style.form}>
-        <FormInputs
-          inputDetails={inputDetails}
-          btnType={btnType}
-          inputValue={inputValue}
-          handleChange={handleChange}
-          errors={errors}
-        />
+        <FormInputs inputDetails={inputDetails} />
 
         {children}
 

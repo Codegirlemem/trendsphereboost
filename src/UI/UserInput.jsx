@@ -2,29 +2,43 @@ import style from './UserInput.module.css';
 import { ReactComponent as ShowIcon } from '../assets/icons/show-password.svg';
 
 import { useState } from 'react';
+import { useStateContext } from '../pages/StateProvider';
+import useValidate from '../hooks/useValidate';
 
 // Pass the input type, placeholder text and label text content as props using type, placeholder and label as the exact prop name in the parent component
 
-export default function UserInput(props) {
-  const { data, value, errors, handleChange } = props;
-  // console.log(data);
-  // console.log(handleChange);
+export default function UserInput({ data }) {
+  const { name, label, type } = data;
+  const {
+    state,
+    handleInputChange,
+    signup,
+    passwordMatch,
+    isValid,
+    validationErrors,
+  } = useStateContext();
+  const value = state.inputValue[name];
+  const [showError, setShowError] = useState('');
+
+  useValidate(
+    name,
+    value,
+    signup,
+    setShowError,
+    passwordMatch,
+    isValid,
+    validationErrors,
+  );
 
   const [hidePassword, setHidePassword] = useState(true);
   function togglePasswordDisplay() {
     setHidePassword(!hidePassword);
   }
 
-  // type={detail.type}
-  //       placeholder={detail.placeholder}
-  //       label={detail.label}
-  //       name={detail.name}
-  //       value={inputValue[detail.name]}
-
   return (
     <label className={style.inputLabel}>
       <span>
-        {data.label}
+        {label}
         <span className={style.star}>*</span>
       </span>
       <div className={style.inputDiv}>
@@ -32,7 +46,7 @@ export default function UserInput(props) {
           className={style.userInput}
           required
           type={
-            data.type === 'password'
+            type === 'password'
               ? hidePassword
                 ? 'password'
                 : 'text'
@@ -40,9 +54,11 @@ export default function UserInput(props) {
           }
           placeholder={data.placeholder}
           id={`user${data.label.split(' ').join('')}`}
-          name={data.name}
+          name={name}
           value={value}
-          onChange={(e) => handleChange(e.target.name, e.target.value)}
+          onChange={(e) => {
+            handleInputChange(e);
+          }}
         />
 
         {data.type === 'password' && (
@@ -54,11 +70,7 @@ export default function UserInput(props) {
           </span>
         )}
       </div>
-      {Boolean(errors[data.name]) && (
-        <p className={value.length > 0 ? style.errorMsg : style.defaultError}>
-          {errors[data.name]}
-        </p>
-      )}
+      {showError && <p className={style.errorMsg}>{showError}</p>}
     </label>
   );
 }

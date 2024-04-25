@@ -6,14 +6,14 @@
   display: flex;
   gap: 15px;
 }
-.img {
+.imgsphere {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 .img2 {
-  width: 42px;
-  height: 42px;
+  width: 40px;
+  height: 40px;
   flex-shrink: 0;
   border-radius: 50%;
   background-color: #ff5733;
@@ -45,15 +45,16 @@
 .num {
   font-size: 16px;
   font-weight: 600;
+  line-height: 100%;
 }
 .support {
   font-style: normal;
   font-weight: 450;
   line-height: 12px;
   color: var(--Dark, #0a142f);
-  font-family: "TT Commons";
+  font-family: 'TT Commons';
   font-size: 14px;
-  margin-top: -50px;
+  margin-top: -20px;
 }
 .product {
   display: flex;
@@ -65,7 +66,7 @@
   align-items: flex-start;
   gap: 10px;
   flex-direction: column;
-  margin-top: -10px;
+  margin-top: 10px;
 }
 .updates {
   background-color: #fff;
@@ -81,8 +82,13 @@
   outline: none;
   color: #0a142f;
 }
-.btn {
+.btn4 {
   background-color: #002f5f;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .arrow {
   width: 11.514px;
@@ -92,4 +98,80 @@
 .product p {
   color: #0a142f;
   font-size: 12px;
+}
+@media only screen and (max-width: 1024px) {
+  .links {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .reserve {
+    font-size: 14px;
+  }
+  .imgsphere {
+    gap: 140px;
+  }
+  .footer {
+    padding-left: 20px;
+  }
+  .img2 {
+    width: 30px;
+    height: 30px;
+  }
+  .image h2 {
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .image img {
+    width: 30x;
+    height: 30px;
+  }
+  .wrapper {
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 30px;
+  }
+  .support {
+    font-size: 12px;
+    padding-right: 15px;
+  }
+  .num {
+    font-size: 12px;
+  }
+  .quick {
+    text-align: center;
+  }
+  .quick h4 {
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .quick p {
+    font-size: 10px;
+  }
+  .product {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  }
+  .info {
+    flex-direction: column;
+  }
+  .subscribeform {
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    padding-right: 30px;
+  }
+  .subscribeform h4 {
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+  }
+  .subscribeform form {
+    width: 120px;
+  }
+  .subscribeform input {
+    font-size: 7px;
+  }
 }

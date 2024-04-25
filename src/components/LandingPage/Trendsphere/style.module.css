@@ -1,0 +1,64 @@
+.boost {
+  font-family: Exo;
+  color: #002f5f;
+  text-align: center;
+  font-family: Exo;
+  font-size: 72px;
+  font-style: normal;
+  font-weight: 600;
+}
+.paragraph {
+  color: #4b4b4b;
+  text-align: center;
+  font-family: Montserrat;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 160%;
+}
+.menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.boost {
+  text-align: center;
+  font-size: 50px;
+  font-weight: bold;
+}
+.section2 {
+  text-align: center;
+}
+.span1 {
+  color: #ff5733;
+}
+.button {
+  gap: 50px;
+  margin-top: 80px;
+}
+.btn {
+  display: flex;
+  padding: 16px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.socials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 250px;
+  margin-top: 40px;
+}
+@media only screen and (max-width: 1024px) {
+  .boost {
+    text-align: center;
+    font-size: 45px;
+  }
+  .paragraph {
+    font-size: 12px;
+    text-align: center;
+    padding: 5px 12px;
+  }
+}

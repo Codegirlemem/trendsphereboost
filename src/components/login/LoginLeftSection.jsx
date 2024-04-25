@@ -7,42 +7,31 @@ import { CheckboxAgreement } from '../../UI/FormIcons';
 import { inputArray } from './data';
 import { Logo } from '../../UI/FormIcons';
 
-import { useInputValues, useSubmitForm } from '../../hooks/formhooks';
+import { useSubmitForm } from '../../hooks/formhooks';
 
-import { useState } from 'react';
 import DisplayError from '../../UI/DisplayError';
 import { useAuth } from '../../hooks/AuthContext';
+import { useStateContext } from '../../pages/StateProvider';
+import { Link } from 'react-router-dom';
 
-export default function LoginLeftSection() {
-  const [isChecked, setIsChecked] = useState(false);
+const data = { signup: false, type: 'login', nextPage: '/user-dashboard' };
+
+export default function LoginLeftSection({ value, checked }) {
   const { state, login, dispatch } = useAuth();
-  const signup = false;
-  const type = 'login';
-  const nextPage = '/user-dashboard';
+  const context = useStateContext();
 
-  const account = {
-    userEmail: '',
-    userPassword: '',
-    checkbox: isChecked,
-  };
-
-  const [inputValue, inputErrors, isValid, handleInputChange, setInputValue] =
-    useInputValues(account, signup);
-
+  const { inputValue, loginError } = context.state;
   const userData = {
-    email: inputValue.userEmail?.trim(),
-    password: inputValue.userPassword?.trim(),
-    loggedIn: inputValue.checkbox,
+    email: inputValue.userEmail?.trim()?.toLowerCase(),
+    password: inputValue.userPassword?.trim()?.toLowerCase(),
+    keepLoggedIn: inputValue.checkbox,
   };
-
+  console.log(inputValue);
   const [isLoading, formError, handleForm, setFormError] = useSubmitForm(
     userData,
-    setInputValue,
-    account,
-    isValid,
-    type,
-    nextPage,
+    data,
     login,
+    context,
   );
 
   function resetError() {
@@ -60,7 +49,7 @@ export default function LoginLeftSection() {
           data={formError}
         />
       )}
-      {state.loginError && (
+      {loginError && (
         <DisplayError
           name="readBtn"
           btnType="Back"
@@ -68,10 +57,13 @@ export default function LoginLeftSection() {
           data={state.loginError}
         />
       )}
-      {!isLoading && !formError && !state.loginError && (
+      {!isLoading && !formError && !loginError && (
         <div className={style.wrapper}>
           <div className={style.header}>
-            <Logo logo="blue" className={style.logo} />
+            <Link to="/" className="">
+              <Logo logo="blue" className={style.logo} />
+            </Link>
+
             <div>
               <h1 className={style.heading}>Welcome</h1>
               <p>Elevate your social reach, Elevate your brand</p>
@@ -84,22 +76,12 @@ export default function LoginLeftSection() {
 
           <div className={style.form}>
             <AccountForm
-              signup={false}
               inputDetails={inputArray}
               btnType="Login"
-              inputValue={inputValue}
               submitForm={handleForm}
-              handleChange={handleInputChange}
-              errors={inputErrors}
             >
               <div className={style.checkbox}>
-                <CheckboxAgreement
-                  onChecked={setIsChecked}
-                  handleData={handleInputChange}
-                  signup={false}
-                  errors={inputErrors}
-                  value={inputValue.checkbox}
-                />
+                <CheckboxAgreement value={value} onChecked={checked} />
               </div>
             </AccountForm>
           </div>

@@ -5,23 +5,39 @@ import SignupImage from '../assets/images/signup-img.svg';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { BsArrowLeft } from 'react-icons/bs';
+import { useState } from 'react';
+import { useStateContext } from '../pages/StateProvider';
+import useValidate from '../hooks/useValidate';
 
 // CHECKBOX AND ITS AGREEMENT MESSAGE
-export function CheckboxAgreement(props) {
-  const { onChecked, handleData, signup, errors, value } = props;
-
-  // useEffect(function () {
-  //   function setChanges() {
-  //     handleData('checkbox', value);
-  //   }
-  //   setChanges();
-  // }, []);
+export function CheckboxAgreement({ value, onChecked }) {
+  // const { onChecked, handleData, signup, errors, value } = props;
+  const {
+    handleInputChange,
+    signup,
+    passwordMatch,
+    isValid,
+    validationErrors,
+  } = useStateContext();
+  // const { inputErrors, inputValue } = state;
+  const [showError, setShowError] = useState(false);
+  useValidate(
+    'checkbox',
+    value,
+    signup,
+    setShowError,
+    passwordMatch,
+    isValid,
+    validationErrors,
+  );
 
   const handleCheckbox = (e) => {
-    onChecked(!value);
-    handleData(e.target.name, !value);
-    // {(e) => handleChange(e.target.name, e.target.value)}
+    const newValue = !value;
+    onChecked(newValue);
+    console.log(value);
+    handleInputChange(e);
   };
+
   return (
     <div className={style.container}>
       <div>
@@ -50,8 +66,8 @@ export function CheckboxAgreement(props) {
           )}
         </div>
         {/* <p>Please check the aggrement box</p> */}
-        {signup && errors.checkbox === 'Not checked' && !value && (
-          <p className={style.errorMsg}>Please check the aggrement box</p>
+        {signup && !value && showError && (
+          <p className={style.errorMsg}>Please check the box to proceed</p>
         )}
       </div>
       {!signup && (

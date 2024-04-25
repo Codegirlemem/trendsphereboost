@@ -37,3 +37,15 @@
 .inputform {
   margin-bottom: 40px;
 }
+@media only screen and (max-width: 1024px) {
+  .news {
+    font-size: 22px;
+  }
+  .latest {
+    font-size: 12px;
+    padding: 0 15px;
+  }
+  .inputform {
+    padding: 12px 28px;
+  }
+}

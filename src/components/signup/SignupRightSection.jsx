@@ -5,47 +5,49 @@ import { CheckboxAgreement } from '../../UI/FormIcons';
 import { CheckAccount } from '../../UI/LoginSignup';
 import DisplayError from '../../UI/DisplayError';
 import { inputArray } from './data';
-import { useState } from 'react';
 
-import { useInputValues, useSubmitForm } from '../../hooks/formhooks';
+import { useSubmitForm } from '../../hooks/formhooks';
 import { useAuth } from '../../hooks/AuthContext';
+import { useStateContext } from '../../pages/StateProvider';
 
-export default function SignupRightSection() {
-  const [isChecked, setIsChecked] = useState(true);
+const data = {
+  signup: true,
+  type: 'signup',
+  nextPage: '/login',
+};
+
+export default function SignupRightSection({ value, checked }) {
   const { login } = useAuth();
-  // console.log(login);
-
-  const signup = true;
-  const type = 'signup';
-  const nextPage = '/login';
-
-  const account = {
-    userName: '',
-    userEmail: '',
-    userPassword: '',
-    confirmedPassword: '',
-    checkbox: isChecked,
-  };
-
-  const [inputValue, inputErrors, isValid, handleInputChange, setInputValue] =
-    useInputValues(account, signup);
-
+  const context = useStateContext();
+  const { state, isValid } = context;
+  const { inputValue } = state;
+  console.log(isValid.current);
   const userData = {
     name: inputValue.userName?.trim()?.toLowerCase(),
     email: inputValue.userEmail?.trim()?.toLowerCase(),
     password: inputValue.userPassword?.trim()?.toLowerCase(),
   };
+  // console.log(fetchAccounts('http://localhost:9000/accounts'));
+
   const [isLoading, formError, handleForm, setFormError] = useSubmitForm(
     userData,
-    setInputValue,
-    account,
-    isValid,
-    type,
-    nextPage,
+    data,
     login,
+    context,
   );
+  console.log(inputValue);
+
+  // throw new Error('erro boundary caught');
+
+  // useUserData();
+  // useEffect(() => {
+  //   useUserData();
+  // }, []);
+  // console.log(fetchData);
+  // console.log(fetchError);
 
   return (
+    // Err
     <section className={style.container}>
       {isLoading && <div>Loading...</div>}
       {formError && (
@@ -62,22 +64,12 @@ export default function SignupRightSection() {
 
           <div className={style.signup}>
             <AccountForm
-              signup={true}
               inputDetails={inputArray}
               btnType="Sign Up"
-              inputValue={inputValue}
               submitForm={handleForm}
-              handleChange={handleInputChange}
-              errors={inputErrors}
             >
               <div className={style.checkbox}>
-                <CheckboxAgreement
-                  onChecked={setIsChecked}
-                  handleData={handleInputChange}
-                  signup={true}
-                  errors={inputErrors}
-                  value={inputValue.checkbox}
-                />
+                <CheckboxAgreement value={value} onChecked={checked} />
               </div>
             </AccountForm>
           </div>
