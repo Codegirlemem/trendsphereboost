@@ -1,4 +1,5 @@
 // import { fetchAccounts } from '../hooks/fetchAccounts';
+import { getNames } from './getNames';
 import { getLocalStorageItem, setLocalStorageItem } from './localStorageTasks';
 // import { postData } from './postData';
 
@@ -13,52 +14,48 @@ export async function submitData(data) {
     userData,
     type,
   } = data;
-
   try {
-    console.log(userData);
-    //   const appAccounts = await fetchAccounts('http://localhost:9000/accounts');
-
     const appAccounts = getLocalStorageItem('Accounts');
-    console.log(appAccounts);
 
-    const user = appAccounts
-      ? appAccounts.find((acc) => acc.email === userData.email)
+    const account = appAccounts
+      ? appAccounts.find((acc) => acc.user.email === userData.email)
       : null;
-    if (user) {
-      console.log('user found so this ran');
+    if (account) {
       if (type === 'signup') {
-        console.log(`signup type so this ran`);
         setIsLoading(false);
         setFormError(
           'User already exist! Sign up with a different email address',
         );
-      } else console.log(`login type so this ran`);
-      login(
-        userData.email?.toLowerCase(),
-        userData.password?.toLowerCase(),
-        user,
-        setIsLoading,
-        setFormError,
-      );
-    } else if (!user) {
-      console.log(`user not found so this ran`);
+      } else
+        login(
+          userData.email?.toLowerCase(),
+          userData.password?.toLowerCase(),
+          account,
+          setIsLoading,
+          setFormError,
+        );
+    } else if (!account) {
       if (type === 'login') {
-        console.log(`login type so this ran`);
-
         setIsLoading(false);
         setFormError('User not found! Invalid email address!');
       } else {
-        console.log(`signup type so this ran`);
+        const date = new Date();
+        const { firstName } = getNames(userData.name);
 
-        setLocalStorageItem(userData, appAccounts, 'Accounts');
+        const newAccount = {
+          user: { ...userData },
+          id: firstName.toLowerCase() + date.toISOString(),
+          creationDate: date.toISOString(),
+          userType: 'new',
+        };
+
+        setLocalStorageItem(newAccount, appAccounts, 'Accounts');
         setIsLoading(false);
         navigate(nextPage);
       }
-      // submitAccount(values);
     }
   } catch (error) {
     setIsLoading(false);
-    console.error('There was a problem!', error.code);
     setFormError('There was a problem fetching accounts data.', error);
   }
 }

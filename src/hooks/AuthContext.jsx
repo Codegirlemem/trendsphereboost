@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 const AuthContext = createContext();
 
 const initialState = {
-  loggedInUser: null,
+  account: null,
   loginError: null,
   isAuthenticated: false,
 };
@@ -12,12 +12,18 @@ const initialState = {
 function reducer(state, action) {
   switch (action.type) {
     case 'logged in':
-      return { ...state, loggedInUser: action.payload, isAuthenticated: true };
+      return {
+        ...state,
+        account: action.payload,
+        isAuthenticated: true,
+      };
+    // case 'logged in':
+    //   return { ...state, loggedInUser: action.payload, isAuthenticated: true };
 
     case 'logout':
       return {
         ...state,
-        loggedInUser: null,
+        account: null,
         loginError: null,
         isAuthenticated: false,
       };
@@ -38,9 +44,9 @@ export function AuthProvider({ children }) {
 
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  function login(email, password, user, setLoading, setError) {
-    if (user.password === password) {
-      dispatch({ type: 'logged in', payload: { user } });
+  function login(email, password, account, setLoading, setError) {
+    if (account.user.password === password) {
+      dispatch({ type: 'logged in', payload: { ...account } });
       setLoading(false);
       navigate('/user-dashboard/overview');
     } else {
@@ -55,17 +61,7 @@ export function AuthProvider({ children }) {
   function logout() {
     dispatch({ type: 'logout' });
   }
-  // function signup(data, err) {
-  //   try {
-  //     return [data, err];
-  //   } catch (err) {
-  //     return `Error: Could not find user. ${err}`;
-  //   }
-  // }
 
-  // function stayLoggedIn() {
-  //   dispatch({ type: 'keep/logged/in', payload: true });
-  // }
   return (
     <AuthContext.Provider value={{ state, dispatch, login, logout }}>
       {children}

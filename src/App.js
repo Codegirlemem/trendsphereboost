@@ -11,7 +11,9 @@ import SocialMedia from './components/dashboard/Organisms/SocialMedia';
 import Overview from './components/dashboard/Organisms/Overview';
 import ContentBank from './components/dashboard/Organisms/ContentBank';
 import PageError from './components/PageError';
-// import ProtectedRoutes from "./pages/ProtectedRoutes";
+import ProtectedRoutes from './pages/ProtectedRoutes';
+import AccountsProvider from './context/AccountsProvider';
+import SubscriptionPlans from './pages/SubscriptionPlans';
 
 function App() {
   return (
@@ -53,11 +55,21 @@ function App() {
           }
         />
 
-        <Route path="/user-dashboard" element={<Dashboard />}>
+        <Route
+          path="/user-dashboard"
+          element={
+            <ProtectedRoutes>
+              <AccountsProvider>
+                <Dashboard />
+              </AccountsProvider>
+            </ProtectedRoutes>
+          }
+        >
           <Route index element={<Overview />} />
           <Route path="overview" element={<Overview />} />
           <Route path="content-bank" element={<ContentBank />} />
           <Route path="social-media-management" element={<SocialMedia />} />
+          <Route path="subscription-plans" element={<SubscriptionPlans />} />
         </Route>
       </Routes>{' '}
     </AuthProvider>

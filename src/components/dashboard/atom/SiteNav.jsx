@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 
 function SiteNav() {
   return (
-    <ul className="flex  w-3/5 pl-1 text-darklue">
+    <ul className="flex  w-3/5 items-center justify-between pl-1 text-darklue">
       <li>
         <NavLink to="/trendsphereboost">Home</NavLink>
       </li>

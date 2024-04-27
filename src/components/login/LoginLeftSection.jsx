@@ -26,7 +26,6 @@ export default function LoginLeftSection({ value, checked }) {
     password: inputValue.userPassword?.trim()?.toLowerCase(),
     keepLoggedIn: inputValue.checkbox,
   };
-  console.log(inputValue);
   const [isLoading, formError, handleForm, setFormError] = useSubmitForm(
     userData,
     data,

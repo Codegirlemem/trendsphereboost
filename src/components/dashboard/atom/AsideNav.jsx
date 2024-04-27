@@ -1,23 +1,22 @@
 import { NavLink } from 'react-router-dom';
-import { iconArray } from './data';
 
-function DashboardNav() {
+function AsideNav({ array }) {
+  const active = 'rounded bg-orange px-4  duration-200';
+
+  const style = ' flex gap-4 transition:all py-2 item-center';
+
   return (
     <>
-      {iconArray.map((arr) => {
+      {array.map((arr) => {
         return (
           <NavLink
             to={arr.id}
-            className={({ isActive }) => {
-              return isActive
-                ? 'flexgap rounded bg-orange px-4 py-2 transition duration-500'
-                : 'flexgap';
-            }}
             key={arr.id}
+            className={({ isActive }) => {
+              return isActive ? active + style : style;
+            }}
           >
-            <div>
-              <img src={arr.icon} alt={arr.title} />
-            </div>
+            <img src={arr.icon} alt={arr.title} />
 
             <div>{arr.title}</div>
           </NavLink>
@@ -35,4 +34,4 @@ function DashboardNav() {
   );
 }
 
-export default DashboardNav;
+export default AsideNav;
