@@ -1,48 +1,56 @@
+.section2 {
+  text-align: center;
+  margin-bottom: 102px;
+  position: relative;
+}
+
 .boost {
-  font-family: Exo;
+  font-family: 'Exo', sans-serif;
   color: #002f5f;
   text-align: center;
-  font-family: Exo;
   font-size: 72px;
   font-style: normal;
   font-weight: 600;
+  margin-bottom: 32px;
+  line-height: 138%;
 }
 .paragraph {
   color: #4b4b4b;
   text-align: center;
-  font-family: Montserrat;
+  font-family: 'Montserrat', sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: 160%;
+  margin-bottom: 72px;
 }
+
+.span1 {
+  color: #ff5733;
+}
+
 .menu {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.boost {
+/* .boost {
   text-align: center;
   font-size: 50px;
   font-weight: bold;
-}
-.section2 {
-  text-align: center;
-}
-.span1 {
-  color: #ff5733;
-}
-.button {
+} */
+
+/* .button {
   gap: 50px;
   margin-top: 80px;
-}
+} */
 .btn {
   display: flex;
   padding: 16px 24px;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+  gap: 56px;
 }
 .socials {
   display: flex;

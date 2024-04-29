@@ -3,67 +3,86 @@ import style from './style.module.css';
 import profileBranding from '../../../assets/LandingPage/images/profilebranding.svg';
 import contentImage from '../../../assets/LandingPage/images/contentImage.svg';
 import profileOptimization from '../../../assets/LandingPage/images/profileOptimization.svg';
+
+import styled from 'styled-components';
+
+const P = styled.p`
+  font-size: 24px;
+  text-align: justify;
+  font-family: 'Montserrat', sans-serif;
+  line-height: 140%; /* 33.6px */
+  margin-bottom: 42px;
+  text-align: justify;
+  width: 98%;
+`;
+
 export const Profile = () => {
   return (
-    <section>
+    <section className="mb-36">
       <div className={style.boostprofile}>
-        <h1 className={style.trendsphere}>Why Trendsphere Boost?</h1>
+        <span className={style.trendsphere}>
+          <h2 className="">Why Trendsphere Boost?</h2>
+        </span>
+
         <p className={style.p2}>
           We are so much more than just a social media marketing company.
           Trendsphere oost is <br /> dedicated to empowering your online
           presence for success in the digital sphere
         </p>
       </div>
-      <div className={style.socialsection}>
-        <div>
-          <h1>PROFILE BRANDING & OPTIMIZATION</h1>
-          <p>
-            Our expert team handles your brand's social
-            <br /> media accounts, creating engaging content,?
-            <br /> managing interactions, and driving growth,
-            <br />
-            so you can focus on running your business <br />
-            while we boost your online presence.
-          </p>
-          <CustomButton variant="bordered" text="Enabled" />
+      <div
+        className={`flex flex-col items-stretch gap-[104px] px-24 ${style.about}`}
+      >
+        <div className={style.items}>
+          <div className="max-w-[557px]">
+            <h3>PROFILE BRANDING & OPTIMIZATION</h3>
+            <P>
+              Our expert team handles your brand's social media accounts,
+              creating engaging content, managing interactions, and driving
+              growth, so you can focus on running your business while we boost
+              your online presence.
+            </P>
+            <CustomButton width="w-44">Subscribe</CustomButton>
+          </div>
+          <div className="flex h-[450px]  justify-end">
+            <img src={profileBranding} alt="profile branding" />
+          </div>
         </div>
-        <div>
-          <img src={profileBranding} alt="profile branding" />
+        <div className={style.items}>
+          <div className="flex h-[450px]">
+            <img src={contentImage} alt="content" />
+          </div>
+          <div className="flex max-w-[557px] flex-col items-end">
+            <h3 className="">CONTENT MARKETING</h3>
+
+            <P>
+              Our content marketing services focus on creating and distributing
+              valuable and relevant content to attract and engage your target
+              audience. Through blog posts, articles, videos, and more, we help
+              establish your brand as an authority in your industry and drive
+              meaningful interactions with your audience.
+            </P>
+            <CustomButton width="w-44">Subscribe</CustomButton>
+          </div>
         </div>
-      </div>
-      <div className={style.socialsection}>
-        <div>
-          <img src={contentImage} alt="content" />
-        </div>
-        <div className={style.content}>
-          <h1>CONTENT MARKETING</h1>
-          <p>
-            Our content marketing services focus on <br />
-            creating and distributing valuable and <br />
-            relevant content to attract and engage your <br />
-            target audience. Through blog posts,
-            <br /> articles, videos, and more, we help establish
-            <br /> your brand as an authority in your industry <br />
-            and drive meaningful interactions with your <br /> audience.
-          </p>
-          <CustomButton variant="bordered" text="Enabled" />
-        </div>
-      </div>
-      <div className={style.socialsection}>
-        <div>
-          <h1>PROFILE BRANDING & OPTIMIZATION</h1>
-          <p>
-            Our expert team handles your brand's social
-            <br /> media accounts, creating engaging content,?
-            <br /> managing interactions, and driving growth,
-            <br />
-            so you can focus on running your business <br />
-            while we boost your online presence.
-          </p>
-          <CustomButton variant="bordered" text="Enabled" />
-        </div>
-        <div>
-          <img src={profileOptimization} alt="profile optimisation" />
+        <div className={style.items}>
+          <div className="max-w-[557px]">
+            <h3>PROFILE BRANDING & OPTIMIZATION</h3>
+            <P>
+              Our expert team handles your brand's social media accounts,
+              creating engaging content, managing interactions, and driving
+              growth, so you can focus on running your business while we boost
+              your online presence.
+            </P>
+            <CustomButton width="w-44">Subscribe</CustomButton>
+          </div>
+          <div className="flex h-[450px]  justify-end">
+            <img
+              className=""
+              src={profileOptimization}
+              alt="profile optimisation"
+            />
+          </div>
         </div>
       </div>
     </section>

@@ -3,7 +3,13 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 var(--app-block-padding);
-  margin: 20px 70px;
+
+  background-color: white;
+  width: 90%;
+  margin-top: 50px;
+  margin-bottom: 102px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .logoimage {
   display: flex;
@@ -40,6 +46,8 @@
 } */
 .navList li a {
   text-decoration: none;
+  font-size: 20px;
+  font-weight: 500;
 }
 .signupButton {
   background-color: #ff5733;

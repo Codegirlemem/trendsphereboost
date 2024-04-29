@@ -3,48 +3,32 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 4px;
+  padding: 48px 82px;
+  margin-bottom: 8rem;
   background: #002f5f;
-  margin-top: 100px;
   color: #fff;
   text-align: center;
-  padding: 0 var(--app-block-padding);
 }
-.latest {
-  font-family: Montserrat;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 140%;
-}
+
 .news {
-  font-family: Exo;
-  font-size: 30px;
+  font-family: 'Exo', sans-serif;
+  font-size: 56px;
   font-weight: 600;
+  line-height: 120%;
+  margin-bottom: 16px;
 }
-.inputbutton {
-  background-color: #fff;
-  padding: 5px;
-  display: flex;
-  gap: 10px;
-  border-radius: 5px;
-}
+
 .email {
   border: none;
   outline: none;
   flex: 1;
 }
-.inputform {
-  margin-bottom: 40px;
-}
+
 @media only screen and (max-width: 1024px) {
   .news {
     font-size: 22px;
   }
-  .latest {
-    font-size: 12px;
-    padding: 0 15px;
-  }
+
   .inputform {
     padding: 12px 28px;
   }

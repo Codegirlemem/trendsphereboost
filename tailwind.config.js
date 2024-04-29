@@ -14,10 +14,10 @@ module.exports = {
         orange: '#FF5733',
       },
       fontFamily: {
-        exo: 'Exo, san-serif',
-        inter: 'Inter',
-        montserrat: 'Montserrat, san-serif',
-        roboto: 'Roboto, san-serif',
+        exo: '"Exo", san-serif',
+        inter: '"Inter", san-serif',
+        montserrat: '"Montserrat", san-serif',
+        roboto: '"Roboto", san-serif',
       },
       height: {
         screen: '100dvh',

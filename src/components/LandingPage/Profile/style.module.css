@@ -1,33 +1,41 @@
 .boostprofile {
   text-align: center;
-  margin-top: 70px;
+  margin-top: 144px;
 }
 .trendsphere {
   color: #002f5f;
-  font-family: Exo;
-  font-size: 36px;
-  font-style: normal;
+  font-family: 'Exo', sans-serif;
+  font-size: 56px;
   font-weight: 600;
-  line-height: 80%;
-  text-decoration: underline;
+  line-height: 120%;
+  display: inline-block;
+  border-bottom: 1.5px solid #002f5f;
+  margin-bottom: 40px;
 }
 .p2 {
   color: #4b4b4b;
   text-align: center;
-  font-family: Montserrat;
+  font-family: 'Montserrat', sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
   line-height: 160%;
+  margin-bottom: 88px;
 }
-.socialsection {
-  margin-top: 100px;
+
+.about h3 {
+  font-size: 32px;
+  font-family: 'Exo', sans-serif;
+  font-weight: 600;
+  line-height: 140%;
+  color: #002f5f;
+  margin-bottom: 20px;
+}
+.items {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: space-around;
-}
-.content {
-  text-align: right;
+  gap: 50px;
 }
 
 @media only screen and (max-width: 1024px) {
@@ -37,17 +45,5 @@
   .p2 {
     font-size: 15px;
     padding: 5px 25px;
-  }
-  .socialsection {
-    padding: 25px;
-    gap: 25px;
-    font-size: 13px;
-    margin-top: 20px;
-  }
-  .content {
-    font-size: 13px;
-  }
-  .bold {
-    font-weight: 600;
   }
 }

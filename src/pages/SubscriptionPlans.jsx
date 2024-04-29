@@ -1,5 +1,16 @@
+import PlanCard from '../components/dashboard/subscribe/PlanCard';
+import { subscriptionPlans } from '../components/dashboard/data/subscription';
+
 function SubscriptionPlans() {
-  return <div>subscription plan apages</div>;
+  return (
+    <section>
+      <section className="mb-40 ml-12 mt-[72px] flex justify-between">
+        {subscriptionPlans.map((plan) => (
+          <PlanCard key={plan.plan} plan={plan} />
+        ))}
+      </section>
+    </section>
+  );
 }
 
 export default SubscriptionPlans;

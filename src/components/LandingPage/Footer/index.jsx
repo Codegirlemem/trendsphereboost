@@ -2,6 +2,9 @@ import style from './style.module.css';
 import trendSphere from '../../../assets/LandingPage/icons/trendsphere-icon.svg';
 import arrowIcon from '../../../assets/LandingPage/icons/arrowIcon.svg';
 import socialLinks from '../../../assets/LandingPage/icons/socialLinks.svg';
+
+// const btnFooter = `border-[0.5px]  border-black text-black bg-none`;
+
 export const Footer = () => {
   return (
     <section className={style.footer}>

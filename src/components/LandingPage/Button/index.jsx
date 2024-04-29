@@ -1,29 +1,10 @@
-export default function CustomButton({ text, variant }) {
-  let buttonStyle = {};
+const btn = `flex font-roboto text-base font-medium items-center justify-center rounded-lg px-6 `;
+const btnOrange = `text-white bg-orange py-4`;
 
-  if (variant === "black") {
-    buttonStyle = {
-      backgroundColor: "transparent",
-      color: "black",
-      padding: "10px 20px",
-      border: "1px solid #002F5F",
-      cursor: "pointer",
-      borderRadius: "8px",
-      textAlign: "center",
-      width: "142px",
-    };
-  } else if (variant === "bordered") {
-    buttonStyle = {
-      backgroundColor: "#FF5733",
-      color: "white",
-      padding: "10px 20px",
-      border: "1px solid white",
-      cursor: "pointer",
-      borderRadius: "8px",
-      textAlign: "center",
-      width: "142px",
-    };
-  }
-
-  return <button style={buttonStyle}>{text}</button>;
+export default function CustomButton({
+  width = 'w-full',
+  type = btnOrange,
+  children,
+}) {
+  return <button className={`${btn} ${type} ${width}`}>{children}</button>;
 }

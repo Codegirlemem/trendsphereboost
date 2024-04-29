@@ -1,5 +1,5 @@
-import { createContext, useContext, useReducer } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { createContext, useContext, useReducer, useRef } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const AuthContext = createContext();
 
@@ -17,6 +17,7 @@ function reducer(state, action) {
         account: action.payload,
         isAuthenticated: true,
       };
+
     // case 'logged in':
     //   return { ...state, loggedInUser: action.payload, isAuthenticated: true };
 
@@ -39,8 +40,24 @@ function reducer(state, action) {
 }
 
 export function AuthProvider({ children }) {
-  // const [data, error] = useFetchAccounts('http://localhost:9000/accounts');
   const navigate = useNavigate();
+  const path = useLocation();
+  console.log(path);
+
+  const headerRef = useRef();
+  const dashboardRef = useRef();
+  //   function setRef(name, oldRef) {
+  // oldRef.current
+  //   }
+
+  function scrollToView() {
+    console.log(headerRef.current);
+    if (path.pathname === '/') {
+      headerRef.current?.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      dashboardRef.current?.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
 
   const [state, dispatch] = useReducer(reducer, initialState);
 
@@ -63,7 +80,17 @@ export function AuthProvider({ children }) {
   }
 
   return (
-    <AuthContext.Provider value={{ state, dispatch, login, logout }}>
+    <AuthContext.Provider
+      value={{
+        state,
+        dispatch,
+        login,
+        logout,
+        scrollToView,
+        headerRef,
+        dashboardRef,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );
