@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
-import { useAccountsProvider } from '../../../context/AccountsProvider';
 import SearchBox from '../atom/SearchBox';
 import SkipBack from '../atom/SkipBack';
 import WelcomeBanner from './WelcomeBanner';
+import { useAuth } from '../../../hooks/AuthContext';
 
 function BodyHeader() {
-  const { showBanner } = useAccountsProvider();
+  const { showBanner } = useAuth();
 
   return (
     <div className="font-montserrat">

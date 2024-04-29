@@ -5,6 +5,9 @@ import contentImage from '../../../assets/LandingPage/images/contentImage.svg';
 import profileOptimization from '../../../assets/LandingPage/images/profileOptimization.svg';
 
 import styled from 'styled-components';
+import { useScroll } from '../../../hooks/ScrollContext';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../../hooks/AuthContext';
 
 const P = styled.p`
   font-size: 24px;
@@ -17,8 +20,20 @@ const P = styled.p`
 `;
 
 export const Profile = () => {
+  const {
+    state: { isAuthenticated },
+  } = useAuth();
+
+  const navigate = useNavigate();
+
+  function startSubcription() {
+    if (!isAuthenticated) navigate('/login');
+    else navigate('/user-dashboard/subscription-plans');
+  }
+
+  const { servicesRef } = useScroll();
   return (
-    <section className="mb-36">
+    <section ref={servicesRef} className="mb-36">
       <div className={style.boostprofile}>
         <span className={style.trendsphere}>
           <h2 className="">Why Trendsphere Boost?</h2>
@@ -42,7 +57,9 @@ export const Profile = () => {
               growth, so you can focus on running your business while we boost
               your online presence.
             </P>
-            <CustomButton width="w-44">Subscribe</CustomButton>
+            <div onClick={startSubcription}>
+              <CustomButton width="w-44">Subscribe</CustomButton>
+            </div>
           </div>
           <div className="flex h-[450px]  justify-end">
             <img src={profileBranding} alt="profile branding" />
@@ -54,7 +71,6 @@ export const Profile = () => {
           </div>
           <div className="flex max-w-[557px] flex-col items-end">
             <h3 className="">CONTENT MARKETING</h3>
-
             <P>
               Our content marketing services focus on creating and distributing
               valuable and relevant content to attract and engage your target
@@ -62,7 +78,9 @@ export const Profile = () => {
               establish your brand as an authority in your industry and drive
               meaningful interactions with your audience.
             </P>
-            <CustomButton width="w-44">Subscribe</CustomButton>
+            <div onClick={startSubcription}>
+              <CustomButton width="w-44">Subscribe</CustomButton>
+            </div>{' '}
           </div>
         </div>
         <div className={style.items}>
@@ -74,7 +92,10 @@ export const Profile = () => {
               growth, so you can focus on running your business while we boost
               your online presence.
             </P>
-            <CustomButton width="w-44">Subscribe</CustomButton>
+
+            <div onClick={startSubcription}>
+              <CustomButton width="w-44">Subscribe</CustomButton>
+            </div>
           </div>
           <div className="flex h-[450px]  justify-end">
             <img

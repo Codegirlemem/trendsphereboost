@@ -14,12 +14,20 @@ import PageError from './components/PageError';
 import ProtectedRoutes from './pages/ProtectedRoutes';
 import AccountsProvider from './context/AccountsProvider';
 import SubscriptionPlans from './pages/SubscriptionPlans';
+import { ScrollProvider } from './hooks/ScrollContext';
 
 function App() {
   return (
     <AuthProvider>
       <Routes>
-        <Route path="/" element={<LandingPage />} />
+        <Route
+          path="/"
+          element={
+            <ScrollProvider>
+              <LandingPage />
+            </ScrollProvider>
+          }
+        />
 
         <Route
           path="/signup"
@@ -60,7 +68,9 @@ function App() {
           element={
             <ProtectedRoutes>
               <AccountsProvider>
-                <Dashboard />
+                <ScrollProvider>
+                  <Dashboard />
+                </ScrollProvider>
               </AccountsProvider>
             </ProtectedRoutes>
           }
@@ -71,7 +81,7 @@ function App() {
           <Route path="social-media-management" element={<SocialMedia />} />
           <Route path="subscription-plans" element={<SubscriptionPlans />} />
         </Route>
-      </Routes>{' '}
+      </Routes>
     </AuthProvider>
     // <div className="App">
     // </div>

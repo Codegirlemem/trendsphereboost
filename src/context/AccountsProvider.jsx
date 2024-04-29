@@ -1,5 +1,4 @@
 import { createContext, useContext } from 'react';
-import { useLocation } from 'react-router-dom';
 import { useAuth } from '../hooks/AuthContext';
 import { getNames } from '../utils/getNames';
 
@@ -11,21 +10,21 @@ function AccountsProvider({ children }) {
   } = useAuth();
   const { name } = account.user;
   const nameTypes = getNames(name);
-  const location = useLocation();
-  const path = location.pathname;
-  let showBanner;
-  if (
-    path.includes('overview') ||
-    path.includes('content-bank') ||
-    path.includes('social-media')
-  ) {
-    showBanner = true;
-  } else {
-    showBanner = false;
-  }
+  // const location = useLocation();
+  // const path = location.pathname;
+  // let showBanner;
+  // if (
+  //   path.includes('overview') ||
+  //   path.includes('content-bank') ||
+  //   path.includes('social-media')
+  // ) {
+  //   showBanner = true;
+  // } else {
+  //   showBanner = false;
+  // }
 
   return (
-    <AccountContext.Provider value={{ nameTypes, account, path, showBanner }}>
+    <AccountContext.Provider value={{ nameTypes, account }}>
       {children}
     </AccountContext.Provider>
   );

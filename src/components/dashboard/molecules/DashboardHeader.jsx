@@ -1,8 +1,8 @@
 import Navigation from './Navigation';
-import { useAuth } from '../../../hooks/AuthContext';
+import { useScroll } from '../../../hooks/ScrollContext';
 
-function Header() {
-  const { dashboardRef } = useAuth();
+function DashboardHeader() {
+  const { dashboardRef } = useScroll();
 
   return (
     <header
@@ -14,4 +14,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default DashboardHeader;

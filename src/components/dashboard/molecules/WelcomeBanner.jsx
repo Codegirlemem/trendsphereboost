@@ -3,12 +3,13 @@ import UserImage from '../atom/UserImage';
 import WelcomeText from '../atom/WelcomeText';
 import SaveButton from '../content-bank/atom/SaveButton';
 import { useAccountsProvider } from '../../../context/AccountsProvider';
+import { useAuth } from '../../../hooks/AuthContext';
 
 function WelcomeBanner() {
   const {
-    path,
     account: { userType },
   } = useAccountsProvider();
+  const { path } = useAuth();
 
   return (
     <div className="ml-8 flex flex-col gap-8 xl:flex-row xl:items-center ">

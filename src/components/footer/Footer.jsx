@@ -6,13 +6,25 @@ import FollowUs from './FollowUs';
 import Subscribe from './Subscribe';
 import Arrow from '../../assets/LandingPage/icons/arrow-top.svg';
 import { useAuth } from '../../hooks/AuthContext';
+import { useScroll } from '../../hooks/ScrollContext';
 
 function Footer({ children }) {
-  const { scrollToView } = useAuth();
+  const { scrollToView, headerRef, dashboardRef, contactRef } = useScroll();
+  const { path } = useAuth();
+
+  function scrollPath() {
+    if (path === '/') {
+      scrollToView(headerRef);
+    } else scrollToView(dashboardRef);
+  }
+
   return (
-    <section className="relative row-span-1 row-start-3 flex items-start justify-between bg-[#ddd] p-10">
+    <section
+      ref={contactRef}
+      className="relative row-span-1 row-start-3 flex items-start justify-between bg-[#ddd] p-10"
+    >
       <span
-        onClick={() => scrollToView()}
+        onClick={scrollPath}
         className="absolute right-10 top-[-12%] flex h-14 w-14 items-center justify-center rounded-full bg-orange"
       >
         <img src={Arrow} alt="" />

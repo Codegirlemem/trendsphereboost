@@ -7,7 +7,7 @@ import ImageAlt from './ImageAlt';
 
 function UserNav() {
   return (
-    <ul className="flex w-2/5 items-center gap-3 text-darklue xl:justify-between">
+    <ul className="flex w-[30%]  items-center justify-between gap-3 text-darklue">
       <li>
         <NavLink to="/trendsphereboost">
           <img src={Notification} alt="notification icon" />

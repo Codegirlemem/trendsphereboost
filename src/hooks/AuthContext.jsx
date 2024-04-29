@@ -1,4 +1,4 @@
-import { createContext, useContext, useReducer, useRef } from 'react';
+import { createContext, useContext, useReducer } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 const AuthContext = createContext();
@@ -18,9 +18,6 @@ function reducer(state, action) {
         isAuthenticated: true,
       };
 
-    // case 'logged in':
-    //   return { ...state, loggedInUser: action.payload, isAuthenticated: true };
-
     case 'logout':
       return {
         ...state,
@@ -28,12 +25,7 @@ function reducer(state, action) {
         loginError: null,
         isAuthenticated: false,
       };
-    case 'unknown user':
-      return { ...state, loginError: action.payload };
-    case 'password incorrect':
-      return { ...state, loginError: action.payload };
-    case 'data error':
-      return { ...state, loginError: action.payload };
+
     default:
       throw new Error('Action is unknown');
   }
@@ -41,22 +33,19 @@ function reducer(state, action) {
 
 export function AuthProvider({ children }) {
   const navigate = useNavigate();
-  const path = useLocation();
-  console.log(path);
 
-  const headerRef = useRef();
-  const dashboardRef = useRef();
-  //   function setRef(name, oldRef) {
-  // oldRef.current
-  //   }
+  const location = useLocation();
+  const path = location.pathname;
 
-  function scrollToView() {
-    console.log(headerRef.current);
-    if (path.pathname === '/') {
-      headerRef.current?.scrollIntoView({ behavior: 'smooth' });
-    } else {
-      dashboardRef.current?.scrollIntoView({ behavior: 'smooth' });
-    }
+  let showBanner;
+  if (
+    path.includes('overview') ||
+    path.includes('content-bank') ||
+    path.includes('social-media')
+  ) {
+    showBanner = true;
+  } else {
+    showBanner = false;
   }
 
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -86,9 +75,8 @@ export function AuthProvider({ children }) {
         dispatch,
         login,
         logout,
-        scrollToView,
-        headerRef,
-        dashboardRef,
+        path,
+        showBanner,
       }}
     >
       {children}

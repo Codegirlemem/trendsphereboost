@@ -1,11 +1,13 @@
 import { useAccountsProvider } from '../../../context/AccountsProvider';
+import { useAuth } from '../../../hooks/AuthContext';
 import { message } from '../data/welcome';
 import { useEffect, useState } from 'react';
 function WelcomeText() {
   const {
     nameTypes: { firstName },
-    path,
   } = useAccountsProvider();
+
+  const { path } = useAuth();
 
   const [text, setText] = useState('');
   useEffect(() => {

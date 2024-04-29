@@ -1,14 +1,31 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import style from './style.module.css';
 
 import { Link } from 'react-router-dom';
 import { Logo } from '../../../UI/FormIcons';
 import CustomButton from '../Button';
-import { useAuth } from '../../../hooks/AuthContext';
+import { useScroll } from '../../../hooks/ScrollContext';
 
 export const Header = () => {
-  const { headerRef } = useAuth();
-  console.log(headerRef.current);
+  const { headerRef, scrollToView, contactRef, aboutRef, servicesRef } =
+    useScroll();
+
+  const navRef = useRef();
+
+  useEffect(() => {
+    const handleClick = (event) => {
+      event.target.textContent === 'Contact' && scrollToView(contactRef);
+      event.target.textContent === 'About' && scrollToView(aboutRef);
+      event.target.textContent === 'Services' && scrollToView(servicesRef);
+    };
+
+    const navList = navRef.current;
+    navList.addEventListener('click', handleClick);
+
+    return () => {
+      navList.removeEventListener('click', handleClick);
+    };
+  }, [aboutRef, contactRef, servicesRef, scrollToView]);
 
   const [isOpen, setIsOpen] = useState(false);
   const toogleMenu = () => {
@@ -21,21 +38,22 @@ export const Header = () => {
           <Logo logo="orange" />
         </Link>
       </div>
-      {/* style.nav-list style.open */}
-      {/* <ul className={isOpen ? 'nav-list open' : 'nav-list'}> */}
 
-      <ul className={`${style['navList']} ${isOpen ? style['open'] : ''}`}>
+      <ul
+        ref={navRef}
+        className={`${style['navList']} ${isOpen ? style['open'] : ''}`}
+      >
         <li className={style.home}>
-          <a href="#/home">Home</a>
+          <Link href="#/home">Home</Link>
         </li>
         <li>
-          <a href="#/about">About</a>
+          <Link href="#/about">About</Link>
         </li>
         <li>
-          <a href="#/services">Services</a>
+          <Link href="#/services">Services</Link>
         </li>
         <li>
-          <a href="#/contact">Contact</a>
+          <Link href="#/contact">Contact</Link>
         </li>
       </ul>
       <Link to="/login">
