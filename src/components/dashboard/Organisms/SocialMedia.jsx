@@ -2,9 +2,9 @@
 
 function SocialMedia() {
   return (
-    <>
+    <section className="mb-20">
       <div>social media managemnent</div>;
-    </>
+    </section>
   );
 }
 

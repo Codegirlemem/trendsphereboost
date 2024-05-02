@@ -28,12 +28,13 @@ export const Trendsphere = () => {
       </p>
       <div className={style.btn}>
         <Link to="/login">
-          <CustomButton width="w-[205px]">Sign up</CustomButton>
-        </Link>
-        <Link to="/login">
           <CustomButton width="w-[205px]" type={btnLearnMore}>
             Learn More
           </CustomButton>
+        </Link>
+
+        <Link to="/signup">
+          <CustomButton width="w-[205px]">Sign up</CustomButton>
         </Link>
       </div>
       <span className="absolute bottom-[-38%] left-[28%] -z-10">

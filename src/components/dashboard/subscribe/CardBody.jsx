@@ -1,5 +1,5 @@
 import Features from './Features';
-import Naira from '../../../assets/icons/mdi_naira.svg';
+import Price from '../content-bank/atom/Price';
 
 function CardBody({ features, discount }) {
   return (
@@ -9,10 +9,10 @@ function CardBody({ features, discount }) {
           <p>
             Save more than 30% <br /> on Annual Plan
           </p>
-          <p className="flex items-center gap-2">
-            <img src={Naira} alt="Naira currency sign" />
+
+          <Price>
             <span className="line-through">{discount}</span>
-          </p>
+          </Price>
         </div>
       )}
 

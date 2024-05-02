@@ -1,5 +1,9 @@
 import { createContext, useContext, useReducer } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import {
+  deleteLocalStorageItem,
+  setLocalStorageItem,
+} from '../utils/localStorageTasks';
 
 const AuthContext = createContext();
 
@@ -53,6 +57,7 @@ export function AuthProvider({ children }) {
   function login(email, password, account, setLoading, setError) {
     if (account.user.password === password) {
       dispatch({ type: 'logged in', payload: { ...account } });
+      setLocalStorageItem(true, [], 'isAuthenticated');
       setLoading(false);
       navigate('/user-dashboard/overview');
     } else {
@@ -66,6 +71,7 @@ export function AuthProvider({ children }) {
   }
   function logout() {
     dispatch({ type: 'logout' });
+    deleteLocalStorageItem('isAuthenticated');
   }
 
   return (

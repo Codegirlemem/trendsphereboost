@@ -6,7 +6,7 @@ function SubscriptionPlans() {
     <section>
       <section className="mb-40 ml-12 mt-[72px] flex justify-between gap-7">
         {subscriptionPlans.map((plan) => (
-          <PlanCard key={plan.plan} plan={plan} />
+          <PlanCard key={plan.name} plan={plan} />
         ))}
       </section>
     </section>

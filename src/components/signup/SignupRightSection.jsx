@@ -19,15 +19,14 @@ const data = {
 export default function SignupRightSection({ value, checked }) {
   const { login } = useAuth();
   const context = useStateContext();
-  const { state, isValid } = context;
+  const { state } = context;
   const { inputValue } = state;
-  console.log(isValid.current);
+
   const userData = {
     name: inputValue.userName?.trim()?.toLowerCase(),
     email: inputValue.userEmail?.trim()?.toLowerCase(),
     password: inputValue.userPassword?.trim()?.toLowerCase(),
   };
-  // console.log(fetchAccounts('http://localhost:9000/accounts'));
 
   const [isLoading, formError, handleForm, setFormError] = useSubmitForm(
     userData,
@@ -35,19 +34,8 @@ export default function SignupRightSection({ value, checked }) {
     login,
     context,
   );
-  console.log(inputValue);
-
-  // throw new Error('erro boundary caught');
-
-  // useUserData();
-  // useEffect(() => {
-  //   useUserData();
-  // }, []);
-  // console.log(fetchData);
-  // console.log(fetchError);
 
   return (
-    // Err
     <section className={style.container}>
       {isLoading && <div>Loading...</div>}
       {formError && (

@@ -1,6 +1,6 @@
 import { useAccountsProvider } from '../../../context/AccountsProvider';
-import StatFigure from '../atom/StatFigure';
-import { stats } from '../data/accountStat';
+// import StatFigure from '../atom/StatFigure';
+// import { stats } from '../data/accountStat';
 
 function DashboardStat() {
   const {
@@ -14,11 +14,22 @@ function DashboardStat() {
       </h2>
 
       <div className="flex  flex-row gap-5 p-4 lg:gap-16">
-        {userType === 'new'
+        {/* {userType === 'new'
           ? ' '
           : stats.map((stat) => (
               <StatFigure key={stat.title} data={stat} />
-            ))}{' '}
+            ))}{' '} */}
+
+        {userType === 'new' ? (
+          <p className="text-xl text-gray-500">
+            No stat to display yet! Subscribe to start using our services.
+          </p>
+        ) : (
+          <p className="text-xl text-gray-500">
+            No stat to display yet! Connect your account and start using our
+            sevices.
+          </p>
+        )}
       </div>
     </section>
   );

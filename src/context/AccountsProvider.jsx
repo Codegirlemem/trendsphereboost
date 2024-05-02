@@ -1,4 +1,4 @@
-import { createContext, useContext } from 'react';
+import { createContext, useContext, useState } from 'react';
 import { useAuth } from '../hooks/AuthContext';
 import { getNames } from '../utils/getNames';
 
@@ -10,21 +10,10 @@ function AccountsProvider({ children }) {
   } = useAuth();
   const { name } = account.user;
   const nameTypes = getNames(name);
-  // const location = useLocation();
-  // const path = location.pathname;
-  // let showBanner;
-  // if (
-  //   path.includes('overview') ||
-  //   path.includes('content-bank') ||
-  //   path.includes('social-media')
-  // ) {
-  //   showBanner = true;
-  // } else {
-  //   showBanner = false;
-  // }
+  const [page, setPage] = useState('checkout');
 
   return (
-    <AccountContext.Provider value={{ nameTypes, account }}>
+    <AccountContext.Provider value={{ nameTypes, account, page, setPage }}>
       {children}
     </AccountContext.Provider>
   );

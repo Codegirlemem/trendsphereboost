@@ -24,7 +24,7 @@ function WelcomeBanner() {
       {userType === 'new' && path.includes('overview') && (
         <Link to="subscription-plans">
           <SaveButton color="bg-orange" radius="rounded" padX="px-6">
-            Start Free Trial
+            <span className="text-xl font-medium">Start Free Trial</span>
           </SaveButton>
         </Link>
       )}

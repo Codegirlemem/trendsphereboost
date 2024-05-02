@@ -1,6 +1,7 @@
 // import { fetchAccounts } from '../hooks/fetchAccounts';
 import { getNames } from './getNames';
 import { getLocalStorageItem, setLocalStorageItem } from './localStorageTasks';
+import { addItemsToArray } from './tasks';
 // import { postData } from './postData';
 
 // Use when no api to make use of local storage as endpoint
@@ -49,7 +50,9 @@ export async function submitData(data) {
           userType: 'new',
         };
 
-        setLocalStorageItem(newAccount, appAccounts, 'Accounts');
+        const accounts = addItemsToArray(newAccount, appAccounts);
+
+        setLocalStorageItem('Accounts', accounts);
         setIsLoading(false);
         navigate(nextPage);
       }

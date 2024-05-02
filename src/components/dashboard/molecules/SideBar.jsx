@@ -4,13 +4,14 @@ import AsideNav from '../atom/AsideNav';
 import Logout from '../atom/Logout';
 import { iconArray, iconArrayPayments } from '../atom/data';
 import { useAccountsProvider } from '../../../context/AccountsProvider';
+import { useAuth } from '../../../hooks/AuthContext';
 
 function SideBar() {
-  const { showBanner } = useAccountsProvider();
+  const { showBanner } = useAuth();
   const {
     account: { userType },
   } = useAccountsProvider();
-  // console.log(userType);
+
   let data = iconArray.filter((obj) => obj.id === 'overview');
   let array;
   if (showBanner) {
@@ -35,9 +36,6 @@ function SideBar() {
         </div>
       </section>
       <Logout />
-      {/* <Link className="hover:rounded hover:bg-orange hover:p-2">
-        <Logout />
-      </Link> */}
     </aside>
   );
 }

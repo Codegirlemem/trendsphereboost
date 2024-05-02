@@ -1,9 +1,14 @@
-export function getNames(name) {
-  const nameArr = name.split(' ').map((item, i) => {
+export function changeCasing(word) {
+  const newWord = word.split(' ').map((item, i) => {
     return (
       item.split('').at(0).toUpperCase() + item.split('').slice(1).join('')
     );
   });
+  return newWord;
+}
+
+export function getNames(name) {
+  const nameArr = changeCasing(name);
   const firstName = nameArr[0];
   const lastName = nameArr.length > 1 ? nameArr[1] : '';
   const fullName = firstName + ' ' + lastName;

@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { validateInput } from './validateInput';
 
 export function useInputValues(account, signup) {
   const [inputValue, setInputValue] = useState({
@@ -9,7 +8,7 @@ export function useInputValues(account, signup) {
 
   function handleInputChange(name, value) {
     setInputValue({ ...inputValue, [name]: value });
-    validateInput(inputValue, signup, setinputErrors);
+    // validateInput(inputValue, signup, setinputErrors);
   }
 
   const inputData = {

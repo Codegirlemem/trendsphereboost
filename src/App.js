@@ -15,6 +15,8 @@ import ProtectedRoutes from './pages/ProtectedRoutes';
 import AccountsProvider from './context/AccountsProvider';
 import SubscriptionPlans from './pages/SubscriptionPlans';
 import { ScrollProvider } from './hooks/ScrollContext';
+import Checkout from './pages/Checkout';
+import CheckoutSuccess from './components/dashboard/checkout/CheckoutSuccess';
 
 function App() {
   return (
@@ -79,7 +81,12 @@ function App() {
           <Route path="overview" element={<Overview />} />
           <Route path="content-bank" element={<ContentBank />} />
           <Route path="social-media-management" element={<SocialMedia />} />
-          <Route path="subscription-plans" element={<SubscriptionPlans />} />
+          <Route
+            path="subscription-plans"
+            element={<SubscriptionPlans />}
+          ></Route>
+          <Route index path="success" element={<CheckoutSuccess />} />
+          <Route path="checkout/:plan" element={<Checkout />}></Route>
         </Route>
       </Routes>
     </AuthProvider>

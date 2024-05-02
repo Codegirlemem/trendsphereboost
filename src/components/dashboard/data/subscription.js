@@ -1,6 +1,6 @@
 export const subscriptionPlans = [
   {
-    plan: 'Monthly',
+    name: 'Monthly',
     price: '50,000',
     discount: false,
     features: [
@@ -11,8 +11,8 @@ export const subscriptionPlans = [
     ],
   },
   {
-    plan: 'Yearly',
-    price: '100,000',
+    name: 'Annual',
+    price: '500,000',
     discount: '100,000',
     features: [
       'Unlimited Content Designs',
@@ -24,3 +24,5 @@ export const subscriptionPlans = [
     ],
   },
 ];
+
+export const discountCode = ['D24FS6', 'Gw29nV', '123456'];

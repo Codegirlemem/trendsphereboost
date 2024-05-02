@@ -20,14 +20,6 @@ function AsideNav({ array }) {
 
             <div>{arr.title}</div>
           </NavLink>
-
-          // <div className="flexgap" key={arr.id}>
-          //   <div>
-          //     <img src={arr.icon} alt={arr.title} />
-          //   </div>
-
-          //   <div>{arr.title}</div>
-          // </div>
         );
       })}
     </>

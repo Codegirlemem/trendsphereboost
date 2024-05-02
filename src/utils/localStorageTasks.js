@@ -5,9 +5,9 @@ function getLocalStorageItem(key) {
   return parsedItems;
 }
 
-function setLocalStorageItem(item, previous, key) {
-  previous.push(item);
-  localStorage.setItem(`${key}`, JSON.stringify(previous));
+
+function setLocalStorageItem(key, value) {
+  localStorage.setItem(`${key}`, JSON.stringify(value));
 }
 
 function deleteLocalStorageItem(key) {

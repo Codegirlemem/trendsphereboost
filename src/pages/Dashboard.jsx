@@ -7,7 +7,7 @@ import { useAuth } from '../hooks/AuthContext';
 function Dashboard() {
   const { path } = useAuth();
   return (
-    <div className=" grid h-dvh grid-cols-dashboard grid-rows-[max-content_1fr_auto]">
+    <div className=" relative grid h-dvh grid-cols-dashboard grid-rows-[max-content_1fr_auto]">
       <SideBar></SideBar>
       <DashboardHeader />
       <Main></Main>
