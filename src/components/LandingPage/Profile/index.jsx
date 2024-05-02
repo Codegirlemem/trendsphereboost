@@ -2,7 +2,6 @@ import CustomButton from '../Button';
 import style from './style.module.css';
 import profileBranding from '../../../assets/LandingPage/images/profilebranding.svg';
 import contentImage from '../../../assets/LandingPage/images/contentImage.svg';
-import profileOptimization from '../../../assets/LandingPage/images/profileOptimization.svg';
 
 import styled from 'styled-components';
 import { useScroll } from '../../../hooks/ScrollContext';
