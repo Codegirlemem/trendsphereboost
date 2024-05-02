@@ -50,7 +50,7 @@ export const Profile = () => {
       >
         <div className={style.items}>
           <div className="max-w-[557px]">
-            <h3>PROFILE BRANDING & OPTIMIZATION</h3>
+            <h3>SOCIAL MEDIA MANAGEMENT</h3>
             <P>
               Our expert team handles your brand's social media accounts,
               creating engaging content, managing interactions, and driving
@@ -70,9 +70,9 @@ export const Profile = () => {
             <img src={contentImage} alt="content" />
           </div>
           <div className="flex max-w-[557px] flex-col items-end">
-            <h3 className="">CONTENT MARKETING</h3>
+            <h3 className="">CONTENT BANK</h3>
             <P>
-              Our content marketing services focus on creating and distributing
+              Our content bank services focus on creating and distributing
               valuable and relevant content to attract and engage your target
               audience. Through blog posts, articles, videos, and more, we help
               establish your brand as an authority in your industry and drive
@@ -81,28 +81,6 @@ export const Profile = () => {
             <div onClick={startSubcription}>
               <CustomButton width="w-44">Subscribe</CustomButton>
             </div>{' '}
-          </div>
-        </div>
-        <div className={style.items}>
-          <div className="max-w-[557px]">
-            <h3>PROFILE BRANDING & OPTIMIZATION</h3>
-            <P>
-              Our expert team handles your brand's social media accounts,
-              creating engaging content, managing interactions, and driving
-              growth, so you can focus on running your business while we boost
-              your online presence.
-            </P>
-
-            <div onClick={startSubcription}>
-              <CustomButton width="w-44">Subscribe</CustomButton>
-            </div>
-          </div>
-          <div className="flex h-[450px]  justify-end">
-            <img
-              className=""
-              src={profileOptimization}
-              alt="profile optimisation"
-            />
           </div>
         </div>
       </div>
