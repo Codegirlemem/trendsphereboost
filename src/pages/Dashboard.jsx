@@ -4,6 +4,10 @@ import Footer from '../components/footer/Footer';
 import DashboardHeader from '../components/dashboard/molecules/DashboardHeader';
 import { useAuth } from '../hooks/AuthContext';
 
+// FOR BACKEND
+
+// REFER TO SavedIdeas.jsx FILE TO VIEW NOTE ON DATABASE REQUIRED
+
 function Dashboard() {
   const { path } = useAuth();
   return (
