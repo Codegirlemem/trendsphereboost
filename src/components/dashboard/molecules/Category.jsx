@@ -1,13 +1,13 @@
 import IdeaBackbround from '../content-bank/IdeaBackbround';
 import IdeaActions from '../content-bank/atom/IdeaActions';
 
-function Ideas({ idea }) {
+function Category({ category }) {
   return (
     <article className="w-[269px] ">
-      <IdeaBackbround idea={idea} />
+      <IdeaBackbround category={category} />
       <IdeaActions />
     </article>
   );
 }
 
-export default Ideas;
+export default Category;
