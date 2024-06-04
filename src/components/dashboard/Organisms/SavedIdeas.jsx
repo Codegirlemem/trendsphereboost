@@ -1,10 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
 import { contents } from '../data/dataIdeas';
-import Category from '../molecules/Category';
+import CategoryBank from '../molecules/CategoryBank';
 import { fetchData } from '../../../utils/fetchData';
+import Category from '../content-bank/Category';
 
 function SavedIdeas() {
   const controllerRef = useRef(null);
+  const [showCategory, setShowCategory] = useState(false);
 
   const [savedContents, setSavedContents] = useState({
     mediaCampaign: '',
@@ -30,6 +32,8 @@ function SavedIdeas() {
   //  DEPENDING ON THE CATEFGORY TYPE, THE FORMAT TO ADD CONTENTS SHOULD BE UNIFORM.EXAMPLE FOR ENGAGEMENT BOOSTERS CATEGORY THE QUIZES HSOULD BE AN OBJECT WITH PROPERTIES LIKE "question", "answer", "type", "category", "difficulty" etc
 
   const updatedCategories = contents.map((item) => {
+    item.showContents = false;
+
     const itemCategory = item.category;
     switch (itemCategory) {
       case 'Social Media Campaign':
@@ -47,12 +51,22 @@ function SavedIdeas() {
 
   return (
     <section className="w-max font-montserrat">
-      <h2 className="mb-6 text-2xl font-medium">Saved Ideas</h2>
-      <div className="grid grid-cols-2 grid-rows-2 gap-x-6 gap-y-10">
-        {updatedCategories.map((category) => (
-          <Category key={category.title} category={category} />
-        ))}
-      </div>
+      {showCategory ? (
+        <Category />
+      ) : (
+        <div>
+          <h2 className="mb-6 text-2xl font-medium">Saved Ideas</h2>
+          <div className="grid grid-cols-2 grid-rows-2 gap-x-6 gap-y-10">
+            {updatedCategories.map((category) => (
+              <CategoryBank
+                key={category.title}
+                category={category}
+                show={setShowCategory}
+              />
+            ))}
+          </div>
+        </div>
+      )}
     </section>
   );
 }

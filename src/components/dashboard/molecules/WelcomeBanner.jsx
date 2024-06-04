@@ -28,6 +28,13 @@ function WelcomeBanner() {
           </SaveButton>
         </Link>
       )}
+      {userType !== 'new' && path.includes('social-media-management') && (
+        <Link to="subscription-plans">
+          <SaveButton color="bg-orange" radius="rounded" padX="px-6">
+            <span className="text-xl font-medium">Start Paid Subscription</span>
+          </SaveButton>
+        </Link>
+      )}
 
       {/* <WelcomeNav /> */}
     </div>

@@ -26,6 +26,7 @@ import SubscriptionPlans from './pages/SubscriptionPlans';
 import Checkout from './pages/Checkout';
 import CheckoutSuccess from './components/dashboard/checkout/CheckoutSuccess';
 import AppLayout from './pages/AppLayout';
+import SocialMediaCampaign from './components/dashboard/content-bank/SocialMediaCampaign';
 
 const router = createBrowserRouter([
   {
@@ -99,6 +100,12 @@ const router = createBrowserRouter([
           {
             path: 'content-bank',
             element: <ContentBank />,
+            children: [
+              {
+                path: 'social-media-campaign',
+                element: <SocialMediaCampaign />,
+              },
+            ],
           },
           {
             path: 'social-media-management',

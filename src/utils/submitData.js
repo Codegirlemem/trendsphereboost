@@ -1,8 +1,9 @@
 // import { fetchAccounts } from '../hooks/fetchAccounts';
+// import { postData } from './postData';
+
 import { getNames } from './getNames';
 import { getLocalStorageItem, setLocalStorageItem } from './localStorageTasks';
 import { addItemsToArray } from './tasks';
-// import { postData } from './postData';
 
 // Use when no api to make use of local storage as endpoint
 export async function submitData(data) {
@@ -64,6 +65,7 @@ export async function submitData(data) {
 }
 
 // use when backend api is read
+
 // export async function submitData(data) {
 //   const {
 //     setFormError,
@@ -77,7 +79,9 @@ export async function submitData(data) {
 
 //   try {
 //     console.log(userData);
-//     const appAccounts = await fetchAccounts('http://localhost:9000/accounts');
+//     const appAccounts = await fetchAccounts(
+//       'https://trend-boost-api.onrender.com/auth',
+//     );
 //     console.log(appAccounts);
 //     const accounts = await appAccounts;
 //     console.log(accounts);

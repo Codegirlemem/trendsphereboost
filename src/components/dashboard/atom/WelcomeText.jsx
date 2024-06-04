@@ -8,6 +8,12 @@ function WelcomeText() {
   } = useAccountsProvider();
 
   const { path } = useAuth();
+  console.log(path);
+
+  const {
+    account: { userType },
+  } = useAccountsProvider();
+  console.log(userType);
 
   const [text, setText] = useState('');
   useEffect(() => {
@@ -17,12 +23,17 @@ function WelcomeText() {
       }
     }
   }, [text, path]);
+  console.log(text);
 
   return (
     <div>
       <h1 className="mb-2 text-xl font-semibold">{`Hello ${firstName},`}</h1>
 
-      <p className="max-w-[592px] text-base">{text}</p>
+      <p className="max-w-[592px] text-base">
+        {path.includes('social-media-management') && userType === 'trial'
+          ? 'Welcome to Social Media Management, your all-in-one hub for orchestrating an effective online presence. This service is only available to paid subscribers.'
+          : text}
+      </p>
     </div>
   );
 }
