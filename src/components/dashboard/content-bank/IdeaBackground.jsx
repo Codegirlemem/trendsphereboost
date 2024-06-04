@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { changeCasing, reduceWords } from '../../../utils/getNames';
+import { reduceWords } from '../../../utils/getNames';
 
 function IdeaBackground({ category, show }) {
   // function getContents() {
