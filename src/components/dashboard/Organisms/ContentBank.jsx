@@ -1,12 +1,22 @@
+import { Outlet } from 'react-router-dom';
 import AddContent from './AddContent';
 import SavedIdeas from './SavedIdeas';
+import { useAuth } from '../../../hooks/AuthContext';
 
 function ContentBank() {
+  const { path } = useAuth();
+  console.log(path);
   return (
     <>
       <div className="mb-20 ml-6 mt-16 flex gap-16">
-        <SavedIdeas />
-        <AddContent />
+        {path.includes('content-bank/') ? (
+          <Outlet />
+        ) : (
+          <>
+            <SavedIdeas />
+            <AddContent />
+          </>
+        )}
       </div>
     </>
   );

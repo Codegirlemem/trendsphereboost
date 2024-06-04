@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom';
 
-function IdeaBackbround({ category }) {
+function IdeaBackground({ category, show }) {
   function getContents() {
     console.log(category.contents);
+    console.log(category);
+    show((prev) => !prev);
   }
 
   return (
@@ -11,7 +13,7 @@ function IdeaBackbround({ category }) {
       style={{ backgroundImage: `url(${category.image})` }}
     >
       <Link
-        onClick={getContents}
+        to={'social-media-campaign'}
         className="absolute right-4 top-2 cursor-pointer text-xs font-medium underline"
       >
         View
@@ -25,4 +27,4 @@ function IdeaBackbround({ category }) {
   );
 }
 
-export default IdeaBackbround;
+export default IdeaBackground;

@@ -3,7 +3,7 @@
 function SocialMedia() {
   return (
     <section className="mb-20">
-      <div>social media managemnent</div>;
+      <div className="sm:m-10"></div>;
     </section>
   );
 }

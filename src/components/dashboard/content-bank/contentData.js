@@ -21,19 +21,3 @@ export const campaign = [
     resource: ['hashtag'],
   },
 ];
-
-const series = [
-  {
-    topic: 'food',
-  },
-
-  {
-    topic: 'music',
-  },
-  {
-    topic: 'health',
-  },
-  {
-    topic: 'fashion',
-  },
-];
