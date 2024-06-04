@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
 
 function IdeaBackground({ category, show }) {
-  function getContents() {
-    console.log(category.contents);
-    console.log(category);
-    show((prev) => !prev);
-  }
+  // function getContents() {
+  //   console.log(category.contents);
+  //   console.log(category);
+  //   show((prev) => !prev);
+  // }
 
   return (
     <figure
