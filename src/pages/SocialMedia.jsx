@@ -6,8 +6,16 @@ import instagramIcon from '../../src/assets/icons/instagram.svg';
 import facebookIcon from '../../src/assets/icons/facebook.svg';
 import twitterIcon from '../../src/assets/icons/twitter.svg';
 import pinterestIcon from '../../src/assets/icons/linkedin.svg';
+import Schedular from '../../src/components/socials/Schedular';
+import CreateContent from '../components/socials/CreateContent';
+import { useState } from 'react';
 
 const SocialMedia = () => {
+  const [data, setData] = useState(null);
+  const options = ['Facebook', 'Instagram', 'Twitter'];
+  const handleDataOptions = (e) => {
+    return setData(e.target.value);
+  };
   return (
     <div className="px-[1.5em]">
       <SearchInput />
@@ -34,7 +42,7 @@ const SocialMedia = () => {
       <section className="linked-socials flex flex-col gap-2">
         <div>
           {' '}
-          <h1>Linked Profiles</h1>
+          <h1 className="text-lg font-bold">Linked Profiles</h1>
         </div>
         <div className="flex gap-2">
           <SocialProfile
@@ -63,7 +71,32 @@ const SocialMedia = () => {
           />
         </div>
       </section>
-      <section classNam e="schedular"></section>
+      <section className="schedular ">
+        <h2 className="mb-[1em] text-lg font-bold">Schedular</h2>
+        <div className="flex justify-between">
+          <Schedular />
+          <Schedular />
+          <Schedular />
+        </div>
+      </section>
+      <section className="create-content mb-[2em]">
+        <CreateContent />
+      </section>
+      <section className="previous-schedule ">
+        <div className="schedule-posts-wrap flex gap-3">
+          <h4>Previous Schedule Posts:</h4>
+          <select
+            name="schedulepost"
+            id="schedulepost"
+            onChange={handleDataOptions}
+          >
+            {options.map((option, index) => {
+              return <option key={index}>{option}</option>;
+            })}
+          </select>
+        </div>
+        <div className=""></div>
+      </section>
     </div>
   );
 };
