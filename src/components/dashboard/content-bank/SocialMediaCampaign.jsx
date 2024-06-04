@@ -1,5 +1,13 @@
+import CtaButtons from './atom/CtaButtons';
+
 function SocialMediaCampaign() {
-  return <div>SociaL MEDIA CAMPAIGN</div>;
+  // const navigate = useNavigate();
+  return (
+    <div>
+      <p className="mb-16">Coming Soon!</p>
+      <CtaButtons />
+    </div>
+  );
 }
 
 export default SocialMediaCampaign;
