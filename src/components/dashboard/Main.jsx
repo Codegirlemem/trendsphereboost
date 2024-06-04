@@ -13,7 +13,10 @@ function Main() {
     <main className="row-span-1 row-start-2 mr-20 font-montserrat text-black transition-all duration-500">
       {!path.includes('success') &&
         !path.includes('error') &&
-        !path.includes('social-media-campaign') && <BodyHeader />}
+        !path.includes('social-media-campaign') &&
+        !path.includes('engagement-boosters') &&
+        !path.includes('content-series') &&
+        !path.includes('inspiration-corner') && <BodyHeader />}
       {/* {!path.includes(excludeBanner) && <BodyHeader />} */}
       {/* {page === 'checkout' && <BodyHeader />} */}
 

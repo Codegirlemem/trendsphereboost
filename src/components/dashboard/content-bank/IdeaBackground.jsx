@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { reduceWords } from '../../../utils/getNames';
 
 function IdeaBackground({ category, show }) {
   // function getContents() {
@@ -7,13 +8,17 @@ function IdeaBackground({ category, show }) {
   //   show((prev) => !prev);
   // }
 
+  const param = reduceWords(category.category, '-');
+  // const param = category.category;
+  console.log(param);
+
   return (
     <figure
       className="relative mb-2  h-[184px] w-full bg-cover bg-no-repeat text-white"
       style={{ backgroundImage: `url(${category.image})` }}
     >
       <Link
-        to={'social-media-campaign'}
+        to={param}
         className="absolute right-4 top-2 cursor-pointer text-xs font-medium underline"
       >
         View

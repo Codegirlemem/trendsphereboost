@@ -5,7 +5,6 @@ import { useAuth } from '../../../hooks/AuthContext';
 
 function ContentBank() {
   const { path } = useAuth();
-  console.log(path);
   return (
     <>
       <div className="mb-20 ml-6 mt-16 flex gap-16">

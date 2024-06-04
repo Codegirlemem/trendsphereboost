@@ -8,12 +8,10 @@ function WelcomeText() {
   } = useAccountsProvider();
 
   const { path } = useAuth();
-  console.log(path);
 
   const {
     account: { userType },
   } = useAccountsProvider();
-  console.log(userType);
 
   const [text, setText] = useState('');
   useEffect(() => {
@@ -23,7 +21,6 @@ function WelcomeText() {
       }
     }
   }, [text, path]);
-  console.log(text);
 
   return (
     <div>
