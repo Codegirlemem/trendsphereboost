@@ -27,6 +27,9 @@ import Checkout from './pages/Checkout';
 import CheckoutSuccess from './components/dashboard/checkout/CheckoutSuccess';
 import AppLayout from './pages/AppLayout';
 import SocialMediaCampaign from './components/dashboard/content-bank/SocialMediaCampaign';
+import InspirationCorner from './components/dashboard/content-bank/InspirationCorner';
+import EngagementBoosters from './components/dashboard/content-bank/EngagementBoosters';
+import ContentSeries from './components/dashboard/content-bank/ContentSeries';
 
 const router = createBrowserRouter([
   {
@@ -102,8 +105,20 @@ const router = createBrowserRouter([
             element: <ContentBank />,
             children: [
               {
-                path: 'social-media-campaign',
+                path: `social-media-campaign`,
                 element: <SocialMediaCampaign />,
+              },
+              {
+                path: `inspiration-corner`,
+                element: <InspirationCorner />,
+              },
+              {
+                path: `engagement-boosters`,
+                element: <EngagementBoosters />,
+              },
+              {
+                path: `content-series`,
+                element: <ContentSeries />,
               },
             ],
           },
